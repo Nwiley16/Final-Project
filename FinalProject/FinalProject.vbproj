@@ -72,11 +72,52 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="FrmAddVehicle.designer.vb">
+      <DependentUpon>FrmAddVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAddVehicle.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FrmDealerStatus.designer.vb">
+      <DependentUpon>FrmDealerStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDealerStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInventory.designer.vb">
+      <DependentUpon>FrmInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInventory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRemoveVehicle.designer.vb">
+      <DependentUpon>FrmRemoveVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRemoveVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSellVehicle.designer.vb">
+      <DependentUpon>FrmSellVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSellVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSoldVehicles.designer.vb">
+      <DependentUpon>FrmSoldVehicles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSoldVehicles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateVehicle.designer.vb">
+      <DependentUpon>FrmUpdateVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -96,8 +137,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="FrmAddVehicle.resx">
+      <DependentUpon>FrmAddVehicle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInventory.resx">
+      <DependentUpon>FrmInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRemoveVehicle.resx">
+      <DependentUpon>FrmRemoveVehicle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSellVehicle.resx">
+      <DependentUpon>FrmSellVehicle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSoldVehicles.resx">
+      <DependentUpon>FrmSoldVehicles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateVehicle.resx">
+      <DependentUpon>FrmUpdateVehicle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
