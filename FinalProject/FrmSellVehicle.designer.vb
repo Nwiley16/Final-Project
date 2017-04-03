@@ -94,6 +94,7 @@ Partial Class FrmSellVehicle
         '
         'ComboBox1
         '
+        Me.ComboBox1.Enabled = False
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(486, 242)
         Me.ComboBox1.Name = "ComboBox1"
@@ -132,6 +133,7 @@ Partial Class FrmSellVehicle
         '
         'txtTrim
         '
+        Me.txtTrim.Enabled = False
         Me.txtTrim.Location = New System.Drawing.Point(486, 145)
         Me.txtTrim.Name = "txtTrim"
         Me.txtTrim.Size = New System.Drawing.Size(100, 20)
@@ -179,6 +181,7 @@ Partial Class FrmSellVehicle
         '
         'txtMileage
         '
+        Me.txtMileage.Enabled = False
         Me.txtMileage.Location = New System.Drawing.Point(486, 296)
         Me.txtMileage.Name = "txtMileage"
         Me.txtMileage.Size = New System.Drawing.Size(100, 20)
@@ -186,6 +189,7 @@ Partial Class FrmSellVehicle
         '
         'txtColor
         '
+        Me.txtColor.Enabled = False
         Me.txtColor.Location = New System.Drawing.Point(486, 191)
         Me.txtColor.Name = "txtColor"
         Me.txtColor.Size = New System.Drawing.Size(100, 20)
@@ -193,6 +197,7 @@ Partial Class FrmSellVehicle
         '
         'txtModel
         '
+        Me.txtModel.Enabled = False
         Me.txtModel.Location = New System.Drawing.Point(486, 100)
         Me.txtModel.Name = "txtModel"
         Me.txtModel.Size = New System.Drawing.Size(100, 20)
@@ -200,6 +205,7 @@ Partial Class FrmSellVehicle
         '
         'txtMake
         '
+        Me.txtMake.Enabled = False
         Me.txtMake.Location = New System.Drawing.Point(486, 60)
         Me.txtMake.Name = "txtMake"
         Me.txtMake.Size = New System.Drawing.Size(100, 20)
@@ -207,6 +213,7 @@ Partial Class FrmSellVehicle
         '
         'txtYear
         '
+        Me.txtYear.Enabled = False
         Me.txtYear.Location = New System.Drawing.Point(486, 21)
         Me.txtYear.MaxLength = 4
         Me.txtYear.Name = "txtYear"
@@ -237,6 +244,7 @@ Partial Class FrmSellVehicle
         '
         'txtTransID
         '
+        Me.txtTransID.Enabled = False
         Me.txtTransID.Location = New System.Drawing.Point(176, 54)
         Me.txtTransID.Name = "txtTransID"
         Me.txtTransID.Size = New System.Drawing.Size(100, 20)

@@ -44,6 +44,7 @@ Partial Class FrmUpdateVehicle
         Me.Button1 = New System.Windows.Forms.Button()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -226,7 +227,7 @@ Partial Class FrmUpdateVehicle
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 528)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 589)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(389, 22)
         Me.StatusStrip1.TabIndex = 43
@@ -237,11 +238,25 @@ Partial Class FrmUpdateVehicle
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 17)
         '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.Color.Azure
+        Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label9.Font = New System.Drawing.Font("Modern No. 20", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label9.Location = New System.Drawing.Point(12, 525)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(356, 52)
+        Me.Label9.TabIndex = 44
+        Me.Label9.Text = "Dream Vehicles"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'FrmUpdateVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(389, 550)
+        Me.ClientSize = New System.Drawing.Size(389, 611)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.BtnUpdate)
@@ -294,4 +309,5 @@ Partial Class FrmUpdateVehicle
     Friend WithEvents Button1 As Button
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents lblStatus As ToolStripStatusLabel
+    Friend WithEvents Label9 As Label
 End Class

@@ -140,6 +140,9 @@
     <EmbeddedResource Include="FrmAddVehicle.resx">
       <DependentUpon>FrmAddVehicle.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDealerStatus.resx">
+      <DependentUpon>FrmDealerStatus.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInventory.resx">
       <DependentUpon>FrmInventory.vb</DependentUpon>
     </EmbeddedResource>

@@ -22,8 +22,97 @@ Partial Class FrmDealerStatus
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblProfit = New System.Windows.Forms.Label()
+        Me.lblValue = New System.Windows.Forms.Label()
+        Me.btnClose = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.SuspendLayout()
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 45)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(150, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Sold Vehicle Profits:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(31, 124)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(123, 20)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Inventory Value:"
+        '
+        'lblProfit
+        '
+        Me.lblProfit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblProfit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProfit.Location = New System.Drawing.Point(198, 42)
+        Me.lblProfit.Name = "lblProfit"
+        Me.lblProfit.Size = New System.Drawing.Size(131, 34)
+        Me.lblProfit.TabIndex = 2
+        '
+        'lblValue
+        '
+        Me.lblValue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblValue.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblValue.Location = New System.Drawing.Point(198, 110)
+        Me.lblValue.Name = "lblValue"
+        Me.lblValue.Size = New System.Drawing.Size(131, 34)
+        Me.lblValue.TabIndex = 3
+        '
+        'btnClose
+        '
+        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Location = New System.Drawing.Point(100, 183)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(168, 32)
+        Me.btnClose.TabIndex = 4
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.Azure
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label3.Location = New System.Drawing.Point(48, 264)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(281, 63)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Dream Vehicles"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FrmDealerStatus
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(382, 347)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.btnClose)
+        Me.Controls.Add(Me.lblValue)
+        Me.Controls.Add(Me.lblProfit)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Name = "FrmDealerStatus"
         Me.Text = "FrmDealerStatus"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
+
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblProfit As Label
+    Friend WithEvents lblValue As Label
+    Friend WithEvents btnClose As Button
+    Friend WithEvents Label3 As Label
 End Class

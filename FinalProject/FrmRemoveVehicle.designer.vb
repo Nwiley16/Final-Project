@@ -28,6 +28,7 @@ Partial Class FrmRemoveVehicle
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtStockNum = New System.Windows.Forms.TextBox()
         Me.btnRemove = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -35,7 +36,7 @@ Partial Class FrmRemoveVehicle
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 281)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 387)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(617, 22)
         Me.StatusStrip1.TabIndex = 43
@@ -49,7 +50,7 @@ Partial Class FrmRemoveVehicle
         'dgvInventory
         '
         Me.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvInventory.Location = New System.Drawing.Point(10, 89)
+        Me.dgvInventory.Location = New System.Drawing.Point(12, 86)
         Me.dgvInventory.Name = "dgvInventory"
         Me.dgvInventory.Size = New System.Drawing.Size(585, 192)
         Me.dgvInventory.TabIndex = 44
@@ -81,11 +82,25 @@ Partial Class FrmRemoveVehicle
         Me.btnRemove.Text = "Remove"
         Me.btnRemove.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.Azure
+        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label2.Location = New System.Drawing.Point(131, 281)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(356, 64)
+        Me.Label2.TabIndex = 48
+        Me.Label2.Text = "Dream Vehicles"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'FrmRemoveVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(617, 303)
+        Me.ClientSize = New System.Drawing.Size(617, 409)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnRemove)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtStockNum)
@@ -107,4 +122,5 @@ Partial Class FrmRemoveVehicle
     Friend WithEvents Label1 As Label
     Friend WithEvents txtStockNum As TextBox
     Friend WithEvents btnRemove As Button
+    Friend WithEvents Label2 As Label
 End Class

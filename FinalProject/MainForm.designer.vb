@@ -31,10 +31,10 @@ Partial Class MainForm
         Me.RemoveVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SellVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DealerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InventoryStatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewInventoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SoldVehiclesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DealerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InventoryStatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -56,78 +56,81 @@ Partial Class MainForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.InventoryToolStripMenuItem, Me.DealerToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(515, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(515, 29)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'FileToolStripMenuItem
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CloseToolStripMenuItem})
+        Me.FileToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(46, 25)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 26)
         Me.CloseToolStripMenuItem.Text = "Close "
         '
         'InventoryToolStripMenuItem
         '
         Me.InventoryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddVehicleToolStripMenuItem, Me.RemoveVehicleToolStripMenuItem, Me.SellVehicleToolStripMenuItem, Me.EditVehicleToolStripMenuItem, Me.ViewInventoryToolStripMenuItem, Me.SoldVehiclesToolStripMenuItem})
+        Me.InventoryToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.InventoryToolStripMenuItem.Name = "InventoryToolStripMenuItem"
-        Me.InventoryToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
+        Me.InventoryToolStripMenuItem.Size = New System.Drawing.Size(88, 25)
         Me.InventoryToolStripMenuItem.Text = "Inventory"
         '
         'AddVehicleToolStripMenuItem
         '
         Me.AddVehicleToolStripMenuItem.Name = "AddVehicleToolStripMenuItem"
-        Me.AddVehicleToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.AddVehicleToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
         Me.AddVehicleToolStripMenuItem.Text = "Add Vehicle"
         '
         'RemoveVehicleToolStripMenuItem
         '
         Me.RemoveVehicleToolStripMenuItem.Name = "RemoveVehicleToolStripMenuItem"
-        Me.RemoveVehicleToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.RemoveVehicleToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
         Me.RemoveVehicleToolStripMenuItem.Text = "Remove Vehicle"
         '
         'SellVehicleToolStripMenuItem
         '
         Me.SellVehicleToolStripMenuItem.Name = "SellVehicleToolStripMenuItem"
-        Me.SellVehicleToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.SellVehicleToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
         Me.SellVehicleToolStripMenuItem.Text = "Sell Vehicle"
         '
         'EditVehicleToolStripMenuItem
         '
         Me.EditVehicleToolStripMenuItem.Name = "EditVehicleToolStripMenuItem"
-        Me.EditVehicleToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.EditVehicleToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
         Me.EditVehicleToolStripMenuItem.Text = "Edit Vehicle "
-        '
-        'DealerToolStripMenuItem
-        '
-        Me.DealerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InventoryStatusToolStripMenuItem})
-        Me.DealerToolStripMenuItem.Name = "DealerToolStripMenuItem"
-        Me.DealerToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
-        Me.DealerToolStripMenuItem.Text = "Dealer"
-        '
-        'InventoryStatusToolStripMenuItem
-        '
-        Me.InventoryStatusToolStripMenuItem.Name = "InventoryStatusToolStripMenuItem"
-        Me.InventoryStatusToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
-        Me.InventoryStatusToolStripMenuItem.Text = "Inventory Status"
         '
         'ViewInventoryToolStripMenuItem
         '
         Me.ViewInventoryToolStripMenuItem.Name = "ViewInventoryToolStripMenuItem"
-        Me.ViewInventoryToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.ViewInventoryToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
         Me.ViewInventoryToolStripMenuItem.Text = "View Inventory"
         '
         'SoldVehiclesToolStripMenuItem
         '
         Me.SoldVehiclesToolStripMenuItem.Name = "SoldVehiclesToolStripMenuItem"
-        Me.SoldVehiclesToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.SoldVehiclesToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
         Me.SoldVehiclesToolStripMenuItem.Text = "Sold Vehicles"
+        '
+        'DealerToolStripMenuItem
+        '
+        Me.DealerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InventoryStatusToolStripMenuItem})
+        Me.DealerToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DealerToolStripMenuItem.Name = "DealerToolStripMenuItem"
+        Me.DealerToolStripMenuItem.Size = New System.Drawing.Size(67, 25)
+        Me.DealerToolStripMenuItem.Text = "Dealer"
+        '
+        'InventoryStatusToolStripMenuItem
+        '
+        Me.InventoryStatusToolStripMenuItem.Name = "InventoryStatusToolStripMenuItem"
+        Me.InventoryStatusToolStripMenuItem.Size = New System.Drawing.Size(193, 26)
+        Me.InventoryStatusToolStripMenuItem.Text = "Inventory Status"
         '
         'MainForm
         '
