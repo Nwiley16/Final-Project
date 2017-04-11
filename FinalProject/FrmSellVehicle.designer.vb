@@ -26,7 +26,7 @@ Partial Class FrmSellVehicle
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboDrivetrain = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -49,6 +49,8 @@ Partial Class FrmSellVehicle
         Me.Label12 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -66,7 +68,7 @@ Partial Class FrmSellVehicle
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(63, 87)
+        Me.Label2.Location = New System.Drawing.Point(63, 98)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(74, 20)
         Me.Label2.TabIndex = 1
@@ -86,20 +88,20 @@ Partial Class FrmSellVehicle
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 116)
+        Me.Label4.Location = New System.Drawing.Point(16, 143)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(143, 20)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "True Market Value:"
         '
-        'ComboBox1
+        'cboDrivetrain
         '
-        Me.ComboBox1.Enabled = False
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(486, 242)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
-        Me.ComboBox1.TabIndex = 33
+        Me.cboDrivetrain.Enabled = False
+        Me.cboDrivetrain.FormattingEnabled = True
+        Me.cboDrivetrain.Location = New System.Drawing.Point(486, 242)
+        Me.cboDrivetrain.Name = "cboDrivetrain"
+        Me.cboDrivetrain.Size = New System.Drawing.Size(100, 21)
+        Me.cboDrivetrain.TabIndex = 33
         '
         'Label8
         '
@@ -222,7 +224,7 @@ Partial Class FrmSellVehicle
         '
         'txtPrice
         '
-        Me.txtPrice.Location = New System.Drawing.Point(176, 116)
+        Me.txtPrice.Location = New System.Drawing.Point(176, 147)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(100, 20)
         Me.txtPrice.TabIndex = 36
@@ -237,7 +239,7 @@ Partial Class FrmSellVehicle
         '
         'txtSellPrice
         '
-        Me.txtSellPrice.Location = New System.Drawing.Point(176, 87)
+        Me.txtSellPrice.Location = New System.Drawing.Point(176, 100)
         Me.txtSellPrice.Name = "txtSellPrice"
         Me.txtSellPrice.Size = New System.Drawing.Size(100, 20)
         Me.txtSellPrice.TabIndex = 37
@@ -245,7 +247,7 @@ Partial Class FrmSellVehicle
         'txtTransID
         '
         Me.txtTransID.Enabled = False
-        Me.txtTransID.Location = New System.Drawing.Point(176, 54)
+        Me.txtTransID.Location = New System.Drawing.Point(176, 62)
         Me.txtTransID.Name = "txtTransID"
         Me.txtTransID.Size = New System.Drawing.Size(100, 20)
         Me.txtTransID.TabIndex = 38
@@ -253,9 +255,9 @@ Partial Class FrmSellVehicle
         'btnSell
         '
         Me.btnSell.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSell.Location = New System.Drawing.Point(20, 337)
+        Me.btnSell.Location = New System.Drawing.Point(67, 388)
         Me.btnSell.Name = "btnSell"
-        Me.btnSell.Size = New System.Drawing.Size(175, 43)
+        Me.btnSell.Size = New System.Drawing.Size(175, 29)
         Me.btnSell.TabIndex = 39
         Me.btnSell.Text = "Sell"
         Me.btnSell.UseVisualStyleBackColor = True
@@ -263,9 +265,9 @@ Partial Class FrmSellVehicle
         'BtnClose
         '
         Me.BtnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.Location = New System.Drawing.Point(412, 337)
+        Me.BtnClose.Location = New System.Drawing.Point(357, 388)
         Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(175, 43)
+        Me.BtnClose.Size = New System.Drawing.Size(175, 29)
         Me.BtnClose.TabIndex = 40
         Me.BtnClose.Text = "Close"
         Me.BtnClose.UseVisualStyleBackColor = True
@@ -276,9 +278,9 @@ Partial Class FrmSellVehicle
         Me.Label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label12.Font = New System.Drawing.Font("Modern No. 20", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.Label12.Location = New System.Drawing.Point(20, 189)
+        Me.Label12.Location = New System.Drawing.Point(20, 236)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(250, 107)
+        Me.Label12.Size = New System.Drawing.Size(250, 127)
         Me.Label12.TabIndex = 41
         Me.Label12.Text = "Dream Vehicles"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -286,7 +288,7 @@ Partial Class FrmSellVehicle
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 390)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 435)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(609, 22)
         Me.StatusStrip1.TabIndex = 42
@@ -297,11 +299,31 @@ Partial Class FrmSellVehicle
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 17)
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(480, 351)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(106, 20)
+        Me.DateTimePicker1.TabIndex = 44
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(354, 351)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(95, 20)
+        Me.Label13.TabIndex = 43
+        Me.Label13.Text = "Arrival Date:"
+        '
         'FrmSellVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(609, 412)
+        Me.ClientSize = New System.Drawing.Size(609, 457)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.BtnClose)
@@ -310,7 +332,7 @@ Partial Class FrmSellVehicle
         Me.Controls.Add(Me.txtSellPrice)
         Me.Controls.Add(Me.txtPrice)
         Me.Controls.Add(Me.txtStockNum)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cboDrivetrain)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -341,7 +363,7 @@ Partial Class FrmSellVehicle
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboDrivetrain As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
@@ -364,4 +386,6 @@ Partial Class FrmSellVehicle
     Friend WithEvents Label12 As Label
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents lblStatus As ToolStripStatusLabel
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label13 As Label
 End Class

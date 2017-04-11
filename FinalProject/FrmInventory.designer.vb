@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmInventory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,122 +20,58 @@ Partial Class FrmInventory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.dgvInventory = New System.Windows.Forms.DataGridView()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.cboMake = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cboModel = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtStockNum = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cboYear = New System.Windows.Forms.ComboBox()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
+        Me.Inventory1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DealerDataSet1 = New FinalProject.DealerDataSet()
+        Me.DealerDataSet = New FinalProject.DealerDataSet()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Inventory1TableAdapter = New FinalProject.DealerDataSetTableAdapters.Inventory1TableAdapter()
+        Me.YearDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MakeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TrimDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DrivetrainDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MileageDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TrueMarketValue = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ArrivalDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inventory1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DealerDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DealerDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvInventory
         '
+        Me.dgvInventory.AllowUserToOrderColumns = True
+        Me.dgvInventory.AutoGenerateColumns = False
         Me.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvInventory.Location = New System.Drawing.Point(28, 198)
+        Me.dgvInventory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.YearDataGridViewTextBoxColumn, Me.MakeDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.TrimDataGridViewTextBoxColumn, Me.ColorDataGridViewTextBoxColumn, Me.DrivetrainDataGridViewTextBoxColumn, Me.MileageDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.TrueMarketValue, Me.Price, Me.ArrivalDate})
+        Me.dgvInventory.DataSource = Me.Inventory1BindingSource
+        Me.dgvInventory.Location = New System.Drawing.Point(-1, 198)
         Me.dgvInventory.Name = "dgvInventory"
-        Me.dgvInventory.Size = New System.Drawing.Size(622, 283)
+        Me.dgvInventory.Size = New System.Drawing.Size(1135, 283)
         Me.dgvInventory.TabIndex = 48
         '
-        'ComboBox1
+        'Inventory1BindingSource
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(118, 24)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(112, 21)
-        Me.ComboBox1.TabIndex = 49
+        Me.Inventory1BindingSource.DataMember = "Inventory1"
+        Me.Inventory1BindingSource.DataSource = Me.DealerDataSet1
         '
-        'cboMake
+        'DealerDataSet1
         '
-        Me.cboMake.AutoSize = True
-        Me.cboMake.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboMake.Location = New System.Drawing.Point(25, 25)
-        Me.cboMake.Name = "cboMake"
-        Me.cboMake.Size = New System.Drawing.Size(52, 20)
-        Me.cboMake.TabIndex = 50
-        Me.cboMake.Text = "Make:"
+        Me.DealerDataSet1.DataSetName = "DealerDataSet"
+        Me.DealerDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'Label1
+        'DealerDataSet
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(25, 82)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 20)
-        Me.Label1.TabIndex = 51
-        Me.Label1.Text = "Model:"
-        '
-        'cboModel
-        '
-        Me.cboModel.FormattingEnabled = True
-        Me.cboModel.Location = New System.Drawing.Point(118, 84)
-        Me.cboModel.Name = "cboModel"
-        Me.cboModel.Size = New System.Drawing.Size(112, 21)
-        Me.cboModel.TabIndex = 52
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(395, 27)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(114, 20)
-        Me.Label2.TabIndex = 54
-        Me.Label2.Text = "Stock Number:"
-        '
-        'txtStockNum
-        '
-        Me.txtStockNum.Enabled = False
-        Me.txtStockNum.Location = New System.Drawing.Point(550, 27)
-        Me.txtStockNum.Name = "txtStockNum"
-        Me.txtStockNum.Size = New System.Drawing.Size(100, 20)
-        Me.txtStockNum.TabIndex = 53
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(462, 85)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 20)
-        Me.Label3.TabIndex = 56
-        Me.Label3.Text = "Year:"
-        '
-        'cboYear
-        '
-        Me.cboYear.FormattingEnabled = True
-        Me.cboYear.Location = New System.Drawing.Point(538, 84)
-        Me.cboYear.Name = "cboYear"
-        Me.cboYear.Size = New System.Drawing.Size(112, 21)
-        Me.cboYear.TabIndex = 57
-        '
-        'btnClear
-        '
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(29, 134)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(143, 48)
-        Me.btnClear.TabIndex = 58
-        Me.btnClear.Text = "Clear Filters"
-        Me.btnClear.UseVisualStyleBackColor = True
-        '
-        'btnClose
-        '
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Location = New System.Drawing.Point(507, 134)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(143, 48)
-        Me.btnClose.TabIndex = 59
-        Me.btnClose.Text = "Close"
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.DealerDataSet.DataSetName = "DealerDataSet"
+        Me.DealerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label4
         '
@@ -143,48 +79,124 @@ Partial Class FrmInventory
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label4.Font = New System.Drawing.Font("Modern No. 20", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.Label4.Location = New System.Drawing.Point(198, 134)
+        Me.Label4.Location = New System.Drawing.Point(380, 44)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(290, 62)
+        Me.Label4.Size = New System.Drawing.Size(290, 98)
         Me.Label4.TabIndex = 60
         Me.Label4.Text = "Dream Vehicles"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Inventory1TableAdapter
+        '
+        Me.Inventory1TableAdapter.ClearBeforeFill = True
+        '
+        'YearDataGridViewTextBoxColumn
+        '
+        Me.YearDataGridViewTextBoxColumn.DataPropertyName = "Year"
+        Me.YearDataGridViewTextBoxColumn.HeaderText = "Year"
+        Me.YearDataGridViewTextBoxColumn.Name = "YearDataGridViewTextBoxColumn"
+        Me.YearDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MakeDataGridViewTextBoxColumn
+        '
+        Me.MakeDataGridViewTextBoxColumn.DataPropertyName = "Make"
+        Me.MakeDataGridViewTextBoxColumn.HeaderText = "Make"
+        Me.MakeDataGridViewTextBoxColumn.Name = "MakeDataGridViewTextBoxColumn"
+        Me.MakeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ModelDataGridViewTextBoxColumn
+        '
+        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
+        Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
+        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
+        Me.ModelDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TrimDataGridViewTextBoxColumn
+        '
+        Me.TrimDataGridViewTextBoxColumn.DataPropertyName = "Trim"
+        Me.TrimDataGridViewTextBoxColumn.HeaderText = "Trim"
+        Me.TrimDataGridViewTextBoxColumn.Name = "TrimDataGridViewTextBoxColumn"
+        Me.TrimDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ColorDataGridViewTextBoxColumn
+        '
+        Me.ColorDataGridViewTextBoxColumn.DataPropertyName = "Color"
+        Me.ColorDataGridViewTextBoxColumn.HeaderText = "Color"
+        Me.ColorDataGridViewTextBoxColumn.Name = "ColorDataGridViewTextBoxColumn"
+        Me.ColorDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DrivetrainDataGridViewTextBoxColumn
+        '
+        Me.DrivetrainDataGridViewTextBoxColumn.DataPropertyName = "Drivetrain"
+        Me.DrivetrainDataGridViewTextBoxColumn.HeaderText = "Drivetrain"
+        Me.DrivetrainDataGridViewTextBoxColumn.Name = "DrivetrainDataGridViewTextBoxColumn"
+        Me.DrivetrainDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MileageDataGridViewTextBoxColumn
+        '
+        Me.MileageDataGridViewTextBoxColumn.DataPropertyName = "Mileage"
+        Me.MileageDataGridViewTextBoxColumn.HeaderText = "Mileage"
+        Me.MileageDataGridViewTextBoxColumn.Name = "MileageDataGridViewTextBoxColumn"
+        Me.MileageDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PriceDataGridViewTextBoxColumn
+        '
+        Me.PriceDataGridViewTextBoxColumn.DataPropertyName = "Price"
+        Me.PriceDataGridViewTextBoxColumn.HeaderText = "Price"
+        Me.PriceDataGridViewTextBoxColumn.Name = "PriceDataGridViewTextBoxColumn"
+        Me.PriceDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TrueMarketValue
+        '
+        Me.TrueMarketValue.DataPropertyName = "TrueMarketValue"
+        Me.TrueMarketValue.HeaderText = "TrueMarketValue"
+        Me.TrueMarketValue.Name = "TrueMarketValue"
+        '
+        'Price
+        '
+        Me.Price.DataPropertyName = "Price"
+        Me.Price.HeaderText = "Price"
+        Me.Price.Name = "Price"
+        '
+        'ArrivalDate
+        '
+        Me.ArrivalDate.DataPropertyName = "ArrivalDate"
+        Me.ArrivalDate.HeaderText = "ArrivalDate"
+        Me.ArrivalDate.Name = "ArrivalDate"
         '
         'FrmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(687, 493)
+        Me.ClientSize = New System.Drawing.Size(1146, 493)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.btnClear)
-        Me.Controls.Add(Me.cboYear)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtStockNum)
-        Me.Controls.Add(Me.cboModel)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cboMake)
-        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.dgvInventory)
         Me.Name = "FrmInventory"
-        Me.Text = "FrmInventory"
+        Me.Text = "Inventory Report"
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inventory1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DealerDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DealerDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents dgvInventory As DataGridView
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents cboMake As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents cboModel As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents txtStockNum As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents cboYear As ComboBox
-    Friend WithEvents btnClear As Button
-    Friend WithEvents btnClose As Button
     Friend WithEvents Label4 As Label
+    Friend WithEvents DealerDataSet As DealerDataSet
+    Friend WithEvents StockNumberDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DealerDataSet1 As DealerDataSet
+    Friend WithEvents Inventory1BindingSource As BindingSource
+    Friend WithEvents Inventory1TableAdapter As DealerDataSetTableAdapters.Inventory1TableAdapter
+    Friend WithEvents YearDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MakeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TrimDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ColorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DrivetrainDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MileageDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TrueMarketValue As DataGridViewTextBoxColumn
+    Friend WithEvents Price As DataGridViewTextBoxColumn
+    Friend WithEvents ArrivalDate As DataGridViewTextBoxColumn
 End Class

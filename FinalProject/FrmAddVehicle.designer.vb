@@ -40,11 +40,13 @@ Partial Class FrmAddVehicle
         Me.txtTMV = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboDrivetrain = New System.Windows.Forms.ComboBox()
         Me.txtPrice = New System.Windows.Forms.MaskedTextBox()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'txtStockNum
@@ -205,13 +207,13 @@ Partial Class FrmAddVehicle
         Me.Label10.TabIndex = 18
         Me.Label10.Text = "Price:"
         '
-        'ComboBox1
+        'cboDrivetrain
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(431, 253)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
-        Me.ComboBox1.TabIndex = 19
+        Me.cboDrivetrain.FormattingEnabled = True
+        Me.cboDrivetrain.Location = New System.Drawing.Point(431, 253)
+        Me.cboDrivetrain.Name = "cboDrivetrain"
+        Me.cboDrivetrain.Size = New System.Drawing.Size(100, 21)
+        Me.cboDrivetrain.TabIndex = 19
         '
         'txtPrice
         '
@@ -222,7 +224,7 @@ Partial Class FrmAddVehicle
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(102, 366)
+        Me.btnAdd.Location = New System.Drawing.Point(111, 392)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(127, 25)
         Me.btnAdd.TabIndex = 21
@@ -231,7 +233,7 @@ Partial Class FrmAddVehicle
         '
         'BtnClose
         '
-        Me.BtnClose.Location = New System.Drawing.Point(327, 366)
+        Me.BtnClose.Location = New System.Drawing.Point(327, 392)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(127, 25)
         Me.BtnClose.TabIndex = 22
@@ -251,16 +253,36 @@ Partial Class FrmAddVehicle
         Me.Label11.Text = "Dream Vehicles"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(305, 354)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(95, 20)
+        Me.Label12.TabIndex = 24
+        Me.Label12.Text = "Arrival Date:"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(431, 354)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(106, 20)
+        Me.DateTimePicker1.TabIndex = 25
+        '
         'FrmAddVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(591, 429)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.txtPrice)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cboDrivetrain)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtTMV)
@@ -304,9 +326,11 @@ Partial Class FrmAddVehicle
     Friend WithEvents txtTMV As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboDrivetrain As ComboBox
     Friend WithEvents txtPrice As MaskedTextBox
     Friend WithEvents btnAdd As Button
     Friend WithEvents BtnClose As Button
     Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

@@ -25,9 +25,7 @@ Option Explicit On
 Partial Public Class DealerDataSet
     Inherits Global.System.Data.DataSet
     
-    Private tableInventory As InventoryDataTable
-    
-    Private tableSold_Vehicles As Sold_VehiclesDataTable
+    Private tableInventory1 As Inventory1DataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -58,11 +56,8 @@ Partial Public Class DealerDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("Inventory")) Is Nothing) Then
-                MyBase.Tables.Add(New InventoryDataTable(ds.Tables("Inventory")))
-            End If
-            If (Not (ds.Tables("Sold Vehicles")) Is Nothing) Then
-                MyBase.Tables.Add(New Sold_VehiclesDataTable(ds.Tables("Sold Vehicles")))
+            If (Not (ds.Tables("Inventory1")) Is Nothing) Then
+                MyBase.Tables.Add(New Inventory1DataTable(ds.Tables("Inventory1")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -85,19 +80,9 @@ Partial Public Class DealerDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Inventory() As InventoryDataTable
+    Public ReadOnly Property Inventory1() As Inventory1DataTable
         Get
-            Return Me.tableInventory
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Sold_Vehicles() As Sold_VehiclesDataTable
-        Get
-            Return Me.tableSold_Vehicles
+            Return Me.tableInventory1
         End Get
     End Property
     
@@ -168,11 +153,8 @@ Partial Public Class DealerDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("Inventory")) Is Nothing) Then
-                MyBase.Tables.Add(New InventoryDataTable(ds.Tables("Inventory")))
-            End If
-            If (Not (ds.Tables("Sold Vehicles")) Is Nothing) Then
-                MyBase.Tables.Add(New Sold_VehiclesDataTable(ds.Tables("Sold Vehicles")))
+            If (Not (ds.Tables("Inventory1")) Is Nothing) Then
+                MyBase.Tables.Add(New Inventory1DataTable(ds.Tables("Inventory1")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -206,16 +188,10 @@ Partial Public Class DealerDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableInventory = CType(MyBase.Tables("Inventory"),InventoryDataTable)
+        Me.tableInventory1 = CType(MyBase.Tables("Inventory1"),Inventory1DataTable)
         If (initTable = true) Then
-            If (Not (Me.tableInventory) Is Nothing) Then
-                Me.tableInventory.InitVars
-            End If
-        End If
-        Me.tableSold_Vehicles = CType(MyBase.Tables("Sold Vehicles"),Sold_VehiclesDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableSold_Vehicles) Is Nothing) Then
-                Me.tableSold_Vehicles.InitVars
+            If (Not (Me.tableInventory1) Is Nothing) Then
+                Me.tableInventory1.InitVars
             End If
         End If
     End Sub
@@ -228,27 +204,13 @@ Partial Public Class DealerDataSet
         Me.Namespace = "http://tempuri.org/DealerDataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableInventory = New InventoryDataTable()
-        MyBase.Tables.Add(Me.tableInventory)
-        Me.tableSold_Vehicles = New Sold_VehiclesDataTable()
-        MyBase.Tables.Add(Me.tableSold_Vehicles)
-        Dim fkc As Global.System.Data.ForeignKeyConstraint
-        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Inventory_Sold Vehicles", New Global.System.Data.DataColumn() {Me.tableInventory.Stock_NumberColumn}, New Global.System.Data.DataColumn() {Me.tableSold_Vehicles.Transaction_IDColumn})
-        Me.tableSold_Vehicles.Constraints.Add(fkc)
-        fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
-        fkc.DeleteRule = Global.System.Data.Rule.Cascade
-        fkc.UpdateRule = Global.System.Data.Rule.Cascade
+        Me.tableInventory1 = New Inventory1DataTable()
+        MyBase.Tables.Add(Me.tableInventory1)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeInventory() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeSold_Vehicles() As Boolean
+    Private Function ShouldSerializeInventory1() As Boolean
         Return false
     End Function
     
@@ -311,20 +273,17 @@ Partial Public Class DealerDataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub InventoryRowChangeEventHandler(ByVal sender As Object, ByVal e As InventoryRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub Sold_VehiclesRowChangeEventHandler(ByVal sender As Object, ByVal e As Sold_VehiclesRowChangeEvent)
+    Public Delegate Sub Inventory1RowChangeEventHandler(ByVal sender As Object, ByVal e As Inventory1RowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class InventoryDataTable
-        Inherits Global.System.Data.TypedTableBase(Of InventoryRow)
+    Partial Public Class Inventory1DataTable
+        Inherits Global.System.Data.TypedTableBase(Of Inventory1Row)
         
-        Private columnStock_Number As Global.System.Data.DataColumn
+        Private columnStockNumber As Global.System.Data.DataColumn
         
         Private columnYear As Global.System.Data.DataColumn
         
@@ -340,17 +299,17 @@ Partial Public Class DealerDataSet
         
         Private columnMileage As Global.System.Data.DataColumn
         
-        Private columnTrue_Market_Value As Global.System.Data.DataColumn
+        Private columnTrueMarketValue As Global.System.Data.DataColumn
         
         Private columnPrice As Global.System.Data.DataColumn
         
-        Private columnArrival_Date As Global.System.Data.DataColumn
+        Private columnArrivalDate As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Inventory"
+            Me.TableName = "Inventory1"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -383,9 +342,9 @@ Partial Public Class DealerDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Stock_NumberColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property StockNumberColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnStock_Number
+                Return Me.columnStockNumber
             End Get
         End Property
         
@@ -447,9 +406,9 @@ Partial Public Class DealerDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property True_Market_ValueColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property TrueMarketValueColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnTrue_Market_Value
+                Return Me.columnTrueMarketValue
             End Get
         End Property
         
@@ -463,9 +422,9 @@ Partial Public Class DealerDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Arrival_DateColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ArrivalDateColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnArrival_Date
+                Return Me.columnArrivalDate
             End Get
         End Property
         
@@ -480,50 +439,50 @@ Partial Public Class DealerDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As InventoryRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As Inventory1Row
             Get
-                Return CType(Me.Rows(index),InventoryRow)
+                Return CType(Me.Rows(index),Inventory1Row)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event InventoryRowChanging As InventoryRowChangeEventHandler
+        Public Event Inventory1RowChanging As Inventory1RowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event InventoryRowChanged As InventoryRowChangeEventHandler
+        Public Event Inventory1RowChanged As Inventory1RowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event InventoryRowDeleting As InventoryRowChangeEventHandler
+        Public Event Inventory1RowDeleting As Inventory1RowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event InventoryRowDeleted As InventoryRowChangeEventHandler
+        Public Event Inventory1RowDeleted As Inventory1RowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddInventoryRow(ByVal row As InventoryRow)
+        Public Overloads Sub AddInventory1Row(ByVal row As Inventory1Row)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddInventoryRow(ByVal Year As Integer, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal True_Market_Value As Decimal, ByVal Price As Decimal, ByVal Arrival_Date As Date) As InventoryRow
-            Dim rowInventoryRow As InventoryRow = CType(Me.NewRow,InventoryRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Year, Make, Model, Trim, Color, Drivetrain, Mileage, True_Market_Value, Price, Arrival_Date}
-            rowInventoryRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowInventoryRow)
-            Return rowInventoryRow
+        Public Overloads Function AddInventory1Row(ByVal Year As String, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal TrueMarketValue As Decimal, ByVal Price As Decimal, ByVal ArrivalDate As Date) As Inventory1Row
+            Dim rowInventory1Row As Inventory1Row = CType(Me.NewRow,Inventory1Row)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Year, Make, Model, Trim, Color, Drivetrain, Mileage, TrueMarketValue, Price, ArrivalDate}
+            rowInventory1Row.ItemArray = columnValuesArray
+            Me.Rows.Add(rowInventory1Row)
+            Return rowInventory1Row
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByStock_Number(ByVal Stock_Number As Integer) As InventoryRow
-            Return CType(Me.Rows.Find(New Object() {Stock_Number}),InventoryRow)
+        Public Function FindByStockNumber(ByVal StockNumber As Integer) As Inventory1Row
+            Return CType(Me.Rows.Find(New Object() {StockNumber}),Inventory1Row)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As InventoryDataTable = CType(MyBase.Clone,InventoryDataTable)
+            Dim cln As Inventory1DataTable = CType(MyBase.Clone,Inventory1DataTable)
             cln.InitVars
             Return cln
         End Function
@@ -531,13 +490,13 @@ Partial Public Class DealerDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New InventoryDataTable()
+            Return New Inventory1DataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnStock_Number = MyBase.Columns("Stock Number")
+            Me.columnStockNumber = MyBase.Columns("StockNumber")
             Me.columnYear = MyBase.Columns("Year")
             Me.columnMake = MyBase.Columns("Make")
             Me.columnModel = MyBase.Columns("Model")
@@ -545,17 +504,17 @@ Partial Public Class DealerDataSet
             Me.columnColor = MyBase.Columns("Color")
             Me.columnDrivetrain = MyBase.Columns("Drivetrain")
             Me.columnMileage = MyBase.Columns("Mileage")
-            Me.columnTrue_Market_Value = MyBase.Columns("True Market Value")
+            Me.columnTrueMarketValue = MyBase.Columns("TrueMarketValue")
             Me.columnPrice = MyBase.Columns("Price")
-            Me.columnArrival_Date = MyBase.Columns("Arrival Date")
+            Me.columnArrivalDate = MyBase.Columns("ArrivalDate")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnStock_Number = New Global.System.Data.DataColumn("Stock Number", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnStock_Number)
-            Me.columnYear = New Global.System.Data.DataColumn("Year", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnStockNumber = New Global.System.Data.DataColumn("StockNumber", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStockNumber)
+            Me.columnYear = New Global.System.Data.DataColumn("Year", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnYear)
             Me.columnMake = New Global.System.Data.DataColumn("Make", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMake)
@@ -569,58 +528,61 @@ Partial Public Class DealerDataSet
             MyBase.Columns.Add(Me.columnDrivetrain)
             Me.columnMileage = New Global.System.Data.DataColumn("Mileage", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMileage)
-            Me.columnTrue_Market_Value = New Global.System.Data.DataColumn("True Market Value", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTrue_Market_Value)
+            Me.columnTrueMarketValue = New Global.System.Data.DataColumn("TrueMarketValue", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTrueMarketValue)
             Me.columnPrice = New Global.System.Data.DataColumn("Price", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPrice)
-            Me.columnArrival_Date = New Global.System.Data.DataColumn("Arrival Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnArrival_Date)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnStock_Number}, true))
-            Me.columnStock_Number.AutoIncrement = true
-            Me.columnStock_Number.AutoIncrementSeed = 1
-            Me.columnStock_Number.AllowDBNull = false
-            Me.columnStock_Number.Unique = true
+            Me.columnArrivalDate = New Global.System.Data.DataColumn("ArrivalDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnArrivalDate)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnStockNumber}, true))
+            Me.columnStockNumber.AutoIncrement = true
+            Me.columnStockNumber.AutoIncrementSeed = -1
+            Me.columnStockNumber.AutoIncrementStep = -1
+            Me.columnStockNumber.AllowDBNull = false
+            Me.columnStockNumber.ReadOnly = true
+            Me.columnStockNumber.Unique = true
             Me.columnYear.AllowDBNull = false
+            Me.columnYear.MaxLength = 10
             Me.columnMake.AllowDBNull = false
-            Me.columnMake.MaxLength = 20
+            Me.columnMake.MaxLength = 30
             Me.columnModel.AllowDBNull = false
-            Me.columnModel.MaxLength = 20
-            Me.columnTrim.MaxLength = 10
+            Me.columnModel.MaxLength = 30
+            Me.columnTrim.MaxLength = 30
             Me.columnColor.AllowDBNull = false
-            Me.columnColor.MaxLength = 10
+            Me.columnColor.MaxLength = 30
             Me.columnDrivetrain.AllowDBNull = false
             Me.columnDrivetrain.MaxLength = 10
             Me.columnMileage.AllowDBNull = false
-            Me.columnMileage.MaxLength = 10
-            Me.columnTrue_Market_Value.AllowDBNull = false
+            Me.columnMileage.MaxLength = 20
+            Me.columnTrueMarketValue.AllowDBNull = false
             Me.columnPrice.AllowDBNull = false
-            Me.columnArrival_Date.AllowDBNull = false
+            Me.columnArrivalDate.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewInventoryRow() As InventoryRow
-            Return CType(Me.NewRow,InventoryRow)
+        Public Function NewInventory1Row() As Inventory1Row
+            Return CType(Me.NewRow,Inventory1Row)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New InventoryRow(builder)
+            Return New Inventory1Row(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(InventoryRow)
+            Return GetType(Inventory1Row)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.InventoryRowChangedEvent) Is Nothing) Then
-                RaiseEvent InventoryRowChanged(Me, New InventoryRowChangeEvent(CType(e.Row,InventoryRow), e.Action))
+            If (Not (Me.Inventory1RowChangedEvent) Is Nothing) Then
+                RaiseEvent Inventory1RowChanged(Me, New Inventory1RowChangeEvent(CType(e.Row,Inventory1Row), e.Action))
             End If
         End Sub
         
@@ -628,8 +590,8 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.InventoryRowChangingEvent) Is Nothing) Then
-                RaiseEvent InventoryRowChanging(Me, New InventoryRowChangeEvent(CType(e.Row,InventoryRow), e.Action))
+            If (Not (Me.Inventory1RowChangingEvent) Is Nothing) Then
+                RaiseEvent Inventory1RowChanging(Me, New Inventory1RowChangeEvent(CType(e.Row,Inventory1Row), e.Action))
             End If
         End Sub
         
@@ -637,8 +599,8 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.InventoryRowDeletedEvent) Is Nothing) Then
-                RaiseEvent InventoryRowDeleted(Me, New InventoryRowChangeEvent(CType(e.Row,InventoryRow), e.Action))
+            If (Not (Me.Inventory1RowDeletedEvent) Is Nothing) Then
+                RaiseEvent Inventory1RowDeleted(Me, New Inventory1RowChangeEvent(CType(e.Row,Inventory1Row), e.Action))
             End If
         End Sub
         
@@ -646,14 +608,14 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.InventoryRowDeletingEvent) Is Nothing) Then
-                RaiseEvent InventoryRowDeleting(Me, New InventoryRowChangeEvent(CType(e.Row,InventoryRow), e.Action))
+            If (Not (Me.Inventory1RowDeletingEvent) Is Nothing) Then
+                RaiseEvent Inventory1RowDeleting(Me, New Inventory1RowChangeEvent(CType(e.Row,Inventory1Row), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveInventoryRow(ByVal row As InventoryRow)
+        Public Sub RemoveInventory1Row(ByVal row As Inventory1Row)
             Me.Rows.Remove(row)
         End Sub
         
@@ -680,443 +642,7 @@ Partial Public Class DealerDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "InventoryDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class Sold_VehiclesDataTable
-        Inherits Global.System.Data.TypedTableBase(Of Sold_VehiclesRow)
-        
-        Private columnTransaction_ID As Global.System.Data.DataColumn
-        
-        Private columnStock_Number As Global.System.Data.DataColumn
-        
-        Private columnYear As Global.System.Data.DataColumn
-        
-        Private columnMake As Global.System.Data.DataColumn
-        
-        Private columnModel As Global.System.Data.DataColumn
-        
-        Private columnTrim As Global.System.Data.DataColumn
-        
-        Private columnColor As Global.System.Data.DataColumn
-        
-        Private columnDrivetrain As Global.System.Data.DataColumn
-        
-        Private columnMileage As Global.System.Data.DataColumn
-        
-        Private columnTrue_Market_Value As Global.System.Data.DataColumn
-        
-        Private columnPrice As Global.System.Data.DataColumn
-        
-        Private columnProfit As Global.System.Data.DataColumn
-        
-        Private columnSell_Date As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "Sold Vehicles"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Transaction_IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTransaction_ID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Stock_NumberColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnStock_Number
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property YearColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnYear
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property MakeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMake
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ModelColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnModel
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property TrimColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTrim
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ColorColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnColor
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DrivetrainColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDrivetrain
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property MileageColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMileage
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property True_Market_ValueColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTrue_Market_Value
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property PriceColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPrice
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ProfitColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnProfit
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Sell_DateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSell_Date
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As Sold_VehiclesRow
-            Get
-                Return CType(Me.Rows(index),Sold_VehiclesRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event Sold_VehiclesRowChanging As Sold_VehiclesRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event Sold_VehiclesRowChanged As Sold_VehiclesRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event Sold_VehiclesRowDeleting As Sold_VehiclesRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event Sold_VehiclesRowDeleted As Sold_VehiclesRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddSold_VehiclesRow(ByVal row As Sold_VehiclesRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddSold_VehiclesRow(ByVal Stock_Number As String, ByVal Year As Integer, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal True_Market_Value As String, ByVal Price As Decimal, ByVal Profit As Decimal, ByVal Sell_Date As Date) As Sold_VehiclesRow
-            Dim rowSold_VehiclesRow As Sold_VehiclesRow = CType(Me.NewRow,Sold_VehiclesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Stock_Number, Year, Make, Model, Trim, Color, Drivetrain, Mileage, True_Market_Value, Price, Profit, Sell_Date}
-            rowSold_VehiclesRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowSold_VehiclesRow)
-            Return rowSold_VehiclesRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByTransaction_ID(ByVal Transaction_ID As Integer) As Sold_VehiclesRow
-            Return CType(Me.Rows.Find(New Object() {Transaction_ID}),Sold_VehiclesRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As Sold_VehiclesDataTable = CType(MyBase.Clone,Sold_VehiclesDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New Sold_VehiclesDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnTransaction_ID = MyBase.Columns("Transaction ID")
-            Me.columnStock_Number = MyBase.Columns("Stock Number")
-            Me.columnYear = MyBase.Columns("Year")
-            Me.columnMake = MyBase.Columns("Make")
-            Me.columnModel = MyBase.Columns("Model")
-            Me.columnTrim = MyBase.Columns("Trim")
-            Me.columnColor = MyBase.Columns("Color")
-            Me.columnDrivetrain = MyBase.Columns("Drivetrain")
-            Me.columnMileage = MyBase.Columns("Mileage")
-            Me.columnTrue_Market_Value = MyBase.Columns("True Market Value")
-            Me.columnPrice = MyBase.Columns("Price")
-            Me.columnProfit = MyBase.Columns("Profit")
-            Me.columnSell_Date = MyBase.Columns("Sell Date")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnTransaction_ID = New Global.System.Data.DataColumn("Transaction ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTransaction_ID)
-            Me.columnStock_Number = New Global.System.Data.DataColumn("Stock Number", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnStock_Number)
-            Me.columnYear = New Global.System.Data.DataColumn("Year", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnYear)
-            Me.columnMake = New Global.System.Data.DataColumn("Make", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMake)
-            Me.columnModel = New Global.System.Data.DataColumn("Model", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnModel)
-            Me.columnTrim = New Global.System.Data.DataColumn("Trim", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTrim)
-            Me.columnColor = New Global.System.Data.DataColumn("Color", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnColor)
-            Me.columnDrivetrain = New Global.System.Data.DataColumn("Drivetrain", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDrivetrain)
-            Me.columnMileage = New Global.System.Data.DataColumn("Mileage", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMileage)
-            Me.columnTrue_Market_Value = New Global.System.Data.DataColumn("True Market Value", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTrue_Market_Value)
-            Me.columnPrice = New Global.System.Data.DataColumn("Price", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPrice)
-            Me.columnProfit = New Global.System.Data.DataColumn("Profit", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProfit)
-            Me.columnSell_Date = New Global.System.Data.DataColumn("Sell Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSell_Date)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnTransaction_ID}, true))
-            Me.columnTransaction_ID.AutoIncrement = true
-            Me.columnTransaction_ID.AutoIncrementSeed = 10
-            Me.columnTransaction_ID.AutoIncrementStep = 10
-            Me.columnTransaction_ID.AllowDBNull = false
-            Me.columnTransaction_ID.Unique = true
-            Me.columnStock_Number.MaxLength = 10
-            Me.columnYear.AllowDBNull = false
-            Me.columnMake.AllowDBNull = false
-            Me.columnMake.MaxLength = 20
-            Me.columnModel.AllowDBNull = false
-            Me.columnModel.MaxLength = 20
-            Me.columnTrim.MaxLength = 10
-            Me.columnColor.AllowDBNull = false
-            Me.columnColor.MaxLength = 10
-            Me.columnDrivetrain.AllowDBNull = false
-            Me.columnDrivetrain.MaxLength = 10
-            Me.columnMileage.AllowDBNull = false
-            Me.columnMileage.MaxLength = 10
-            Me.columnTrue_Market_Value.AllowDBNull = false
-            Me.columnTrue_Market_Value.MaxLength = 20
-            Me.columnPrice.AllowDBNull = false
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewSold_VehiclesRow() As Sold_VehiclesRow
-            Return CType(Me.NewRow,Sold_VehiclesRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New Sold_VehiclesRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(Sold_VehiclesRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.Sold_VehiclesRowChangedEvent) Is Nothing) Then
-                RaiseEvent Sold_VehiclesRowChanged(Me, New Sold_VehiclesRowChangeEvent(CType(e.Row,Sold_VehiclesRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.Sold_VehiclesRowChangingEvent) Is Nothing) Then
-                RaiseEvent Sold_VehiclesRowChanging(Me, New Sold_VehiclesRowChangeEvent(CType(e.Row,Sold_VehiclesRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.Sold_VehiclesRowDeletedEvent) Is Nothing) Then
-                RaiseEvent Sold_VehiclesRowDeleted(Me, New Sold_VehiclesRowChangeEvent(CType(e.Row,Sold_VehiclesRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.Sold_VehiclesRowDeletingEvent) Is Nothing) Then
-                RaiseEvent Sold_VehiclesRowDeleting(Me, New Sold_VehiclesRowChangeEvent(CType(e.Row,Sold_VehiclesRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveSold_VehiclesRow(ByVal row As Sold_VehiclesRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DealerDataSet = New DealerDataSet()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "Sold_VehiclesDataTable"
+            attribute2.FixedValue = "Inventory1DataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1163,37 +689,37 @@ Partial Public Class DealerDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class InventoryRow
+    Partial Public Class Inventory1Row
         Inherits Global.System.Data.DataRow
         
-        Private tableInventory As InventoryDataTable
+        Private tableInventory1 As Inventory1DataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableInventory = CType(Me.Table,InventoryDataTable)
+            Me.tableInventory1 = CType(Me.Table,Inventory1DataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Stock_Number() As Integer
+        Public Property StockNumber() As Integer
             Get
-                Return CType(Me(Me.tableInventory.Stock_NumberColumn),Integer)
+                Return CType(Me(Me.tableInventory1.StockNumberColumn),Integer)
             End Get
             Set
-                Me(Me.tableInventory.Stock_NumberColumn) = value
+                Me(Me.tableInventory1.StockNumberColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Year() As Integer
+        Public Property Year() As String
             Get
-                Return CType(Me(Me.tableInventory.YearColumn),Integer)
+                Return CType(Me(Me.tableInventory1.YearColumn),String)
             End Get
             Set
-                Me(Me.tableInventory.YearColumn) = value
+                Me(Me.tableInventory1.YearColumn) = value
             End Set
         End Property
         
@@ -1201,10 +727,10 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Make() As String
             Get
-                Return CType(Me(Me.tableInventory.MakeColumn),String)
+                Return CType(Me(Me.tableInventory1.MakeColumn),String)
             End Get
             Set
-                Me(Me.tableInventory.MakeColumn) = value
+                Me(Me.tableInventory1.MakeColumn) = value
             End Set
         End Property
         
@@ -1212,10 +738,10 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Model() As String
             Get
-                Return CType(Me(Me.tableInventory.ModelColumn),String)
+                Return CType(Me(Me.tableInventory1.ModelColumn),String)
             End Get
             Set
-                Me(Me.tableInventory.ModelColumn) = value
+                Me(Me.tableInventory1.ModelColumn) = value
             End Set
         End Property
         
@@ -1224,13 +750,13 @@ Partial Public Class DealerDataSet
         Public Property Trim() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableInventory.TrimColumn),String)
+                    Return CType(Me(Me.tableInventory1.TrimColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Trim' in table 'Inventory' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Trim' in table 'Inventory1' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableInventory.TrimColumn) = value
+                Me(Me.tableInventory1.TrimColumn) = value
             End Set
         End Property
         
@@ -1238,10 +764,10 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Color() As String
             Get
-                Return CType(Me(Me.tableInventory.ColorColumn),String)
+                Return CType(Me(Me.tableInventory1.ColorColumn),String)
             End Get
             Set
-                Me(Me.tableInventory.ColorColumn) = value
+                Me(Me.tableInventory1.ColorColumn) = value
             End Set
         End Property
         
@@ -1249,10 +775,10 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Drivetrain() As String
             Get
-                Return CType(Me(Me.tableInventory.DrivetrainColumn),String)
+                Return CType(Me(Me.tableInventory1.DrivetrainColumn),String)
             End Get
             Set
-                Me(Me.tableInventory.DrivetrainColumn) = value
+                Me(Me.tableInventory1.DrivetrainColumn) = value
             End Set
         End Property
         
@@ -1260,189 +786,21 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Mileage() As String
             Get
-                Return CType(Me(Me.tableInventory.MileageColumn),String)
+                Return CType(Me(Me.tableInventory1.MileageColumn),String)
             End Get
             Set
-                Me(Me.tableInventory.MileageColumn) = value
+                Me(Me.tableInventory1.MileageColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property True_Market_Value() As Decimal
+        Public Property TrueMarketValue() As Decimal
             Get
-                Return CType(Me(Me.tableInventory.True_Market_ValueColumn),Decimal)
+                Return CType(Me(Me.tableInventory1.TrueMarketValueColumn),Decimal)
             End Get
             Set
-                Me(Me.tableInventory.True_Market_ValueColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Price() As Decimal
-            Get
-                Return CType(Me(Me.tableInventory.PriceColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableInventory.PriceColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Arrival_Date() As Date
-            Get
-                Return CType(Me(Me.tableInventory.Arrival_DateColumn),Date)
-            End Get
-            Set
-                Me(Me.tableInventory.Arrival_DateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsTrimNull() As Boolean
-            Return Me.IsNull(Me.tableInventory.TrimColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetTrimNull()
-            Me(Me.tableInventory.TrimColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class Sold_VehiclesRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableSold_Vehicles As Sold_VehiclesDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableSold_Vehicles = CType(Me.Table,Sold_VehiclesDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Transaction_ID() As Integer
-            Get
-                Return CType(Me(Me.tableSold_Vehicles.Transaction_IDColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.Transaction_IDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Stock_Number() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableSold_Vehicles.Stock_NumberColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Stock Number' in table 'Sold Vehicles' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.Stock_NumberColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Year() As Integer
-            Get
-                Return CType(Me(Me.tableSold_Vehicles.YearColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.YearColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Make() As String
-            Get
-                Return CType(Me(Me.tableSold_Vehicles.MakeColumn),String)
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.MakeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Model() As String
-            Get
-                Return CType(Me(Me.tableSold_Vehicles.ModelColumn),String)
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.ModelColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Trim() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableSold_Vehicles.TrimColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Trim' in table 'Sold Vehicles' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.TrimColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Color() As String
-            Get
-                Return CType(Me(Me.tableSold_Vehicles.ColorColumn),String)
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.ColorColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Drivetrain() As String
-            Get
-                Return CType(Me(Me.tableSold_Vehicles.DrivetrainColumn),String)
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.DrivetrainColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Mileage() As String
-            Get
-                Return CType(Me(Me.tableSold_Vehicles.MileageColumn),String)
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.MileageColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property True_Market_Value() As String
-            Get
-                Return CType(Me(Me.tableSold_Vehicles.True_Market_ValueColumn),String)
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.True_Market_ValueColumn) = value
+                Me(Me.tableInventory1.TrueMarketValueColumn) = value
             End Set
         End Property
         
@@ -1450,89 +808,34 @@ Partial Public Class DealerDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Price() As Decimal
             Get
-                Return CType(Me(Me.tableSold_Vehicles.PriceColumn),Decimal)
+                Return CType(Me(Me.tableInventory1.PriceColumn),Decimal)
             End Get
             Set
-                Me(Me.tableSold_Vehicles.PriceColumn) = value
+                Me(Me.tableInventory1.PriceColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Profit() As Decimal
+        Public Property ArrivalDate() As Date
             Get
-                Try 
-                    Return CType(Me(Me.tableSold_Vehicles.ProfitColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Profit' in table 'Sold Vehicles' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableInventory1.ArrivalDateColumn),Date)
             End Get
             Set
-                Me(Me.tableSold_Vehicles.ProfitColumn) = value
+                Me(Me.tableInventory1.ArrivalDateColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Sell_Date() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableSold_Vehicles.Sell_DateColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Sell Date' in table 'Sold Vehicles' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableSold_Vehicles.Sell_DateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsStock_NumberNull() As Boolean
-            Return Me.IsNull(Me.tableSold_Vehicles.Stock_NumberColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetStock_NumberNull()
-            Me(Me.tableSold_Vehicles.Stock_NumberColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsTrimNull() As Boolean
-            Return Me.IsNull(Me.tableSold_Vehicles.TrimColumn)
+            Return Me.IsNull(Me.tableInventory1.TrimColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetTrimNull()
-            Me(Me.tableSold_Vehicles.TrimColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsProfitNull() As Boolean
-            Return Me.IsNull(Me.tableSold_Vehicles.ProfitColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetProfitNull()
-            Me(Me.tableSold_Vehicles.ProfitColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsSell_DateNull() As Boolean
-            Return Me.IsNull(Me.tableSold_Vehicles.Sell_DateColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetSell_DateNull()
-            Me(Me.tableSold_Vehicles.Sell_DateColumn) = Global.System.Convert.DBNull
+            Me(Me.tableInventory1.TrimColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1540,16 +843,16 @@ Partial Public Class DealerDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class InventoryRowChangeEvent
+    Public Class Inventory1RowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As InventoryRow
+        Private eventRow As Inventory1Row
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As InventoryRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As Inventory1Row, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1557,43 +860,7 @@ Partial Public Class DealerDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As InventoryRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class Sold_VehiclesRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As Sold_VehiclesRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As Sold_VehiclesRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As Sold_VehiclesRow
+        Public ReadOnly Property Row() As Inventory1Row
             Get
                 Return Me.eventRow
             End Get
@@ -1620,7 +887,7 @@ Namespace DealerDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class InventoryTableAdapter
+    Partial Public Class Inventory1TableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -1737,8 +1004,8 @@ Namespace DealerDataSetTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Inventory"
-            tableMapping.ColumnMappings.Add("Stock Number", "Stock Number")
+            tableMapping.DataSetTable = "Inventory1"
+            tableMapping.ColumnMappings.Add("StockNumber", "StockNumber")
             tableMapping.ColumnMappings.Add("Year", "Year")
             tableMapping.ColumnMappings.Add("Make", "Make")
             tableMapping.ColumnMappings.Add("Model", "Model")
@@ -1746,90 +1013,88 @@ Namespace DealerDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Color", "Color")
             tableMapping.ColumnMappings.Add("Drivetrain", "Drivetrain")
             tableMapping.ColumnMappings.Add("Mileage", "Mileage")
-            tableMapping.ColumnMappings.Add("True Market Value", "True Market Value")
+            tableMapping.ColumnMappings.Add("TrueMarketValue", "TrueMarketValue")
             tableMapping.ColumnMappings.Add("Price", "Price")
-            tableMapping.ColumnMappings.Add("Arrival Date", "Arrival Date")
+            tableMapping.ColumnMappings.Add("ArrivalDate", "ArrivalDate")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Inventory] WHERE (([Stock Number] = @Original_Stock_Number) AN"& _ 
-                "D ([Year] = @Original_Year) AND ([Make] = @Original_Make) AND ([Model] = @Origin"& _ 
-                "al_Model) AND ((@IsNull_Trim = 1 AND [Trim] IS NULL) OR ([Trim] = @Original_Trim"& _ 
-                ")) AND ([Color] = @Original_Color) AND ([Drivetrain] = @Original_Drivetrain) AND"& _ 
-                " ([Mileage] = @Original_Mileage) AND ([True Market Value] = @Original_True_Marke"& _ 
-                "t_Value) AND ([Price] = @Original_Price) AND ([Arrival Date] = @Original_Arrival"& _ 
-                "_Date))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Inventory1] WHERE (([StockNumber] = @Original_StockNumber) AND"& _ 
+                " ([Year] = @Original_Year) AND ([Make] = @Original_Make) AND ([Model] = @Origina"& _ 
+                "l_Model) AND ((@IsNull_Trim = 1 AND [Trim] IS NULL) OR ([Trim] = @Original_Trim)"& _ 
+                ") AND ([Color] = @Original_Color) AND ([Drivetrain] = @Original_Drivetrain) AND "& _ 
+                "([Mileage] = @Original_Mileage) AND ([TrueMarketValue] = @Original_TrueMarketVal"& _ 
+                "ue) AND ([Price] = @Original_Price) AND ([ArrivalDate] = @Original_ArrivalDate))"& _ 
+                ""
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stock_Number", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Year", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StockNumber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Year", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Trim", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Drivetrain", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_True_Market_Value", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "True Market Value", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TrueMarketValue", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TrueMarketValue", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Arrival_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Arrival Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Inventory] ([Stock Number], [Year], [Make], [Model], [Trim], ["& _ 
-                "Color], [Drivetrain], [Mileage], [True Market Value], [Price], [Arrival Date]) V"& _ 
-                "ALUES (@Stock_Number, @Year, @Make, @Model, @Trim, @Color, @Drivetrain, @Mileage"& _ 
-                ", @True_Market_Value, @Price, @Arrival_Date);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Stock Number], Year, Make"& _ 
-                ", Model, Trim, Color, Drivetrain, Mileage, [True Market Value], Price, [Arrival "& _ 
-                "Date] FROM Inventory WHERE ([Stock Number] = @Stock_Number)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Inventory1] ([Year], [Make], [Model], [Trim], [Color], [Drivet"& _ 
+                "rain], [Mileage], [TrueMarketValue], [Price], [ArrivalDate]) VALUES (@Year, @Mak"& _ 
+                "e, @Model, @Trim, @Color, @Drivetrain, @Mileage, @TrueMarketValue, @Price, @Arri"& _ 
+                "valDate);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT StockNumber, Year, Make, Model, Trim, Color, Drivetrain, Milea"& _ 
+                "ge, TrueMarketValue, Price, ArrivalDate FROM Inventory1 WHERE (StockNumber = SCO"& _ 
+                "PE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stock_Number", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@True_Market_Value", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "True Market Value", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TrueMarketValue", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TrueMarketValue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Arrival_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Arrival Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Inventory] SET [Stock Number] = @Stock_Number, [Year] = @Year, [Mak"& _ 
-                "e] = @Make, [Model] = @Model, [Trim] = @Trim, [Color] = @Color, [Drivetrain] = @"& _ 
-                "Drivetrain, [Mileage] = @Mileage, [True Market Value] = @True_Market_Value, [Pri"& _ 
-                "ce] = @Price, [Arrival Date] = @Arrival_Date WHERE (([Stock Number] = @Original_"& _ 
-                "Stock_Number) AND ([Year] = @Original_Year) AND ([Make] = @Original_Make) AND (["& _ 
-                "Model] = @Original_Model) AND ((@IsNull_Trim = 1 AND [Trim] IS NULL) OR ([Trim] "& _ 
-                "= @Original_Trim)) AND ([Color] = @Original_Color) AND ([Drivetrain] = @Original"& _ 
-                "_Drivetrain) AND ([Mileage] = @Original_Mileage) AND ([True Market Value] = @Ori"& _ 
-                "ginal_True_Market_Value) AND ([Price] = @Original_Price) AND ([Arrival Date] = @"& _ 
-                "Original_Arrival_Date));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Stock Number], Year, Make, Model, Trim, Color,"& _ 
-                " Drivetrain, Mileage, [True Market Value], Price, [Arrival Date] FROM Inventory "& _ 
-                "WHERE ([Stock Number] = @Stock_Number)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Inventory1] SET [Year] = @Year, [Make] = @Make, [Model] = @Model, ["& _ 
+                "Trim] = @Trim, [Color] = @Color, [Drivetrain] = @Drivetrain, [Mileage] = @Mileag"& _ 
+                "e, [TrueMarketValue] = @TrueMarketValue, [Price] = @Price, [ArrivalDate] = @Arri"& _ 
+                "valDate WHERE (([StockNumber] = @Original_StockNumber) AND ([Year] = @Original_Y"& _ 
+                "ear) AND ([Make] = @Original_Make) AND ([Model] = @Original_Model) AND ((@IsNull"& _ 
+                "_Trim = 1 AND [Trim] IS NULL) OR ([Trim] = @Original_Trim)) AND ([Color] = @Orig"& _ 
+                "inal_Color) AND ([Drivetrain] = @Original_Drivetrain) AND ([Mileage] = @Original"& _ 
+                "_Mileage) AND ([TrueMarketValue] = @Original_TrueMarketValue) AND ([Price] = @Or"& _ 
+                "iginal_Price) AND ([ArrivalDate] = @Original_ArrivalDate));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT StockNumber,"& _ 
+                " Year, Make, Model, Trim, Color, Drivetrain, Mileage, TrueMarketValue, Price, Ar"& _ 
+                "rivalDate FROM Inventory1 WHERE (StockNumber = @StockNumber)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stock_Number", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@True_Market_Value", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "True Market Value", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TrueMarketValue", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TrueMarketValue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Arrival_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Arrival Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stock_Number", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Year", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StockNumber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Year", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Trim", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Drivetrain", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_True_Market_Value", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "True Market Value", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TrueMarketValue", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TrueMarketValue", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Arrival_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Arrival Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StockNumber", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1845,8 +1110,8 @@ Namespace DealerDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT [Stock Number], Year, Make, Model, Trim, Color, Drivetrain, Mileage, [True"& _ 
-                " Market Value], Price, [Arrival Date] FROM dbo.Inventory"
+            Me._commandCollection(0).CommandText = "SELECT StockNumber, Year, Make, Model, Trim, Color, Drivetrain, Mileage, TrueMark"& _ 
+                "etValue, Price, ArrivalDate FROM dbo.Inventory1"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1854,7 +1119,7 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DealerDataSet.InventoryDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DealerDataSet.Inventory1DataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1867,9 +1132,9 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DealerDataSet.InventoryDataTable
+        Public Overloads Overridable Function GetData() As DealerDataSet.Inventory1DataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DealerDataSet.InventoryDataTable = New DealerDataSet.InventoryDataTable()
+            Dim dataTable As DealerDataSet.Inventory1DataTable = New DealerDataSet.Inventory1DataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -1877,7 +1142,7 @@ Namespace DealerDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DealerDataSet.InventoryDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DealerDataSet.Inventory1DataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -1885,7 +1150,7 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As DealerDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Inventory")
+            Return Me.Adapter.Update(dataSet, "Inventory1")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1906,9 +1171,13 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Stock_Number As Integer, ByVal Original_Year As Integer, ByVal Original_Make As String, ByVal Original_Model As String, ByVal Original_Trim As String, ByVal Original_Color As String, ByVal Original_Drivetrain As String, ByVal Original_Mileage As String, ByVal Original_True_Market_Value As Decimal, ByVal Original_Price As Decimal, ByVal Original_Arrival_Date As Date) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Stock_Number,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Year,Integer)
+        Public Overloads Overridable Function Delete(ByVal Original_StockNumber As Integer, ByVal Original_Year As String, ByVal Original_Make As String, ByVal Original_Model As String, ByVal Original_Trim As String, ByVal Original_Color As String, ByVal Original_Drivetrain As String, ByVal Original_Mileage As String, ByVal Original_TrueMarketValue As Decimal, ByVal Original_Price As Decimal, ByVal Original_ArrivalDate As Date) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_StockNumber,Integer)
+            If (Original_Year Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Year")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Year,String)
+            End If
             If (Original_Make Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Make")
             Else
@@ -1941,9 +1210,9 @@ Namespace DealerDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Mileage,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_True_Market_Value,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_TrueMarketValue,Decimal)
             Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Price,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_Arrival_Date,Date)
+            Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_ArrivalDate,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1963,42 +1232,45 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Stock_Number As Integer, ByVal Year As Integer, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal True_Market_Value As Decimal, ByVal Price As Decimal, ByVal Arrival_Date As Date) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(Stock_Number,Integer)
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(Year,Integer)
+        Public Overloads Overridable Function Insert(ByVal Year As String, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal TrueMarketValue As Decimal, ByVal Price As Decimal, ByVal ArrivalDate As Date) As Integer
+            If (Year Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Year")
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Year,String)
+            End If
             If (Make Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Make")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Make,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Make,String)
             End If
             If (Model Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Model")
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Model,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Model,String)
             End If
             If (Trim Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Trim,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Trim,String)
             End If
             If (Color Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Color")
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Color,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Color,String)
             End If
             If (Drivetrain Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Drivetrain")
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Drivetrain,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Drivetrain,String)
             End If
             If (Mileage Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Mileage")
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Mileage,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Mileage,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(8).Value = CType(True_Market_Value,Decimal)
-            Me.Adapter.InsertCommand.Parameters(9).Value = CType(Price,Decimal)
-            Me.Adapter.InsertCommand.Parameters(10).Value = CType(Arrival_Date,Date)
+            Me.Adapter.InsertCommand.Parameters(7).Value = CType(TrueMarketValue,Decimal)
+            Me.Adapter.InsertCommand.Parameters(8).Value = CType(Price,Decimal)
+            Me.Adapter.InsertCommand.Parameters(9).Value = CType(ArrivalDate,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2019,760 +1291,108 @@ Namespace DealerDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
-                    ByVal Stock_Number As Integer,  _
-                    ByVal Year As Integer,  _
+                    ByVal Year As String,  _
                     ByVal Make As String,  _
                     ByVal Model As String,  _
                     ByVal Trim As String,  _
                     ByVal Color As String,  _
                     ByVal Drivetrain As String,  _
                     ByVal Mileage As String,  _
-                    ByVal True_Market_Value As Decimal,  _
+                    ByVal TrueMarketValue As Decimal,  _
                     ByVal Price As Decimal,  _
-                    ByVal Arrival_Date As Date,  _
-                    ByVal Original_Stock_Number As Integer,  _
-                    ByVal Original_Year As Integer,  _
+                    ByVal ArrivalDate As Date,  _
+                    ByVal Original_StockNumber As Integer,  _
+                    ByVal Original_Year As String,  _
                     ByVal Original_Make As String,  _
                     ByVal Original_Model As String,  _
                     ByVal Original_Trim As String,  _
                     ByVal Original_Color As String,  _
                     ByVal Original_Drivetrain As String,  _
                     ByVal Original_Mileage As String,  _
-                    ByVal Original_True_Market_Value As Decimal,  _
+                    ByVal Original_TrueMarketValue As Decimal,  _
                     ByVal Original_Price As Decimal,  _
-                    ByVal Original_Arrival_Date As Date) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Stock_Number,Integer)
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Year,Integer)
+                    ByVal Original_ArrivalDate As Date,  _
+                    ByVal StockNumber As Integer) As Integer
+            If (Year Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Year")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Year,String)
+            End If
             If (Make Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Make")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Make,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Make,String)
             End If
             If (Model Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Model")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Model,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Model,String)
             End If
             If (Trim Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Trim,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Trim,String)
             End If
             If (Color Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Color")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Color,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Color,String)
             End If
             If (Drivetrain Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Drivetrain")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Drivetrain,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Drivetrain,String)
             End If
             If (Mileage Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Mileage")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Mileage,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Mileage,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(True_Market_Value,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Price,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Arrival_Date,Date)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Stock_Number,Integer)
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Year,Integer)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(TrueMarketValue,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Price,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ArrivalDate,Date)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_StockNumber,Integer)
+            If (Original_Year Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Year")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Year,String)
+            End If
             If (Original_Make Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Make")
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Make,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Make,String)
             End If
             If (Original_Model Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Model")
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Model,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Model,String)
             End If
             If (Original_Trim Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Trim,String)
-            End If
-            If (Original_Color Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Color")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Color,String)
-            End If
-            If (Original_Drivetrain Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Drivetrain")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Drivetrain,String)
-            End If
-            If (Original_Mileage Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Mileage")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Mileage,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_True_Market_Value,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Price,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Arrival_Date,Date)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Year As Integer,  _
-                    ByVal Make As String,  _
-                    ByVal Model As String,  _
-                    ByVal Trim As String,  _
-                    ByVal Color As String,  _
-                    ByVal Drivetrain As String,  _
-                    ByVal Mileage As String,  _
-                    ByVal True_Market_Value As Decimal,  _
-                    ByVal Price As Decimal,  _
-                    ByVal Arrival_Date As Date,  _
-                    ByVal Original_Stock_Number As Integer,  _
-                    ByVal Original_Year As Integer,  _
-                    ByVal Original_Make As String,  _
-                    ByVal Original_Model As String,  _
-                    ByVal Original_Trim As String,  _
-                    ByVal Original_Color As String,  _
-                    ByVal Original_Drivetrain As String,  _
-                    ByVal Original_Mileage As String,  _
-                    ByVal Original_True_Market_Value As Decimal,  _
-                    ByVal Original_Price As Decimal,  _
-                    ByVal Original_Arrival_Date As Date) As Integer
-            Return Me.Update(Original_Stock_Number, Year, Make, Model, Trim, Color, Drivetrain, Mileage, True_Market_Value, Price, Arrival_Date, Original_Stock_Number, Original_Year, Original_Make, Original_Model, Original_Trim, Original_Color, Original_Drivetrain, Original_Mileage, Original_True_Market_Value, Original_Price, Original_Arrival_Date)
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class Sold_VehiclesTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Sold Vehicles"
-            tableMapping.ColumnMappings.Add("Transaction ID", "Transaction ID")
-            tableMapping.ColumnMappings.Add("Stock Number", "Stock Number")
-            tableMapping.ColumnMappings.Add("Year", "Year")
-            tableMapping.ColumnMappings.Add("Make", "Make")
-            tableMapping.ColumnMappings.Add("Model", "Model")
-            tableMapping.ColumnMappings.Add("Trim", "Trim")
-            tableMapping.ColumnMappings.Add("Color", "Color")
-            tableMapping.ColumnMappings.Add("Drivetrain", "Drivetrain")
-            tableMapping.ColumnMappings.Add("Mileage", "Mileage")
-            tableMapping.ColumnMappings.Add("True Market Value", "True Market Value")
-            tableMapping.ColumnMappings.Add("Price", "Price")
-            tableMapping.ColumnMappings.Add("Profit", "Profit")
-            tableMapping.ColumnMappings.Add("Sell Date", "Sell Date")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Sold Vehicles] WHERE (([Transaction ID] = @Original_Transactio"& _ 
-                "n_ID) AND ((@IsNull_Stock_Number = 1 AND [Stock Number] IS NULL) OR ([Stock Numb"& _ 
-                "er] = @Original_Stock_Number)) AND ([Year] = @Original_Year) AND ([Make] = @Orig"& _ 
-                "inal_Make) AND ([Model] = @Original_Model) AND ((@IsNull_Trim = 1 AND [Trim] IS "& _ 
-                "NULL) OR ([Trim] = @Original_Trim)) AND ([Color] = @Original_Color) AND ([Drivet"& _ 
-                "rain] = @Original_Drivetrain) AND ([Mileage] = @Original_Mileage) AND ([True Mar"& _ 
-                "ket Value] = @Original_True_Market_Value) AND ([Price] = @Original_Price) AND (("& _ 
-                "@IsNull_Profit = 1 AND [Profit] IS NULL) OR ([Profit] = @Original_Profit)) AND ("& _ 
-                "(@IsNull_Sell_Date = 1 AND [Sell Date] IS NULL) OR ([Sell Date] = @Original_Sell"& _ 
-                "_Date)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Transaction_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Transaction ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Stock_Number", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stock_Number", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Year", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Trim", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_True_Market_Value", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "True Market Value", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Profit", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Profit", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Profit", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Profit", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sell_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sell Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sell_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sell Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Sold Vehicles] ([Transaction ID], [Stock Number], [Year], [Mak"& _ 
-                "e], [Model], [Trim], [Color], [Drivetrain], [Mileage], [True Market Value], [Pri"& _ 
-                "ce], [Profit], [Sell Date]) VALUES (@Transaction_ID, @Stock_Number, @Year, @Make"& _ 
-                ", @Model, @Trim, @Color, @Drivetrain, @Mileage, @True_Market_Value, @Price, @Pro"& _ 
-                "fit, @Sell_Date);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Transaction ID], [Stock Number], Year, Make, Model, T"& _ 
-                "rim, Color, Drivetrain, Mileage, [True Market Value], Price, Profit, [Sell Date]"& _ 
-                " FROM [Sold Vehicles] WHERE ([Transaction ID] = @Transaction_ID)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Transaction_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Transaction ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stock_Number", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@True_Market_Value", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "True Market Value", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Profit", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Profit", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sell_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sell Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Sold Vehicles] SET [Transaction ID] = @Transaction_ID, [Stock Numbe"& _ 
-                "r] = @Stock_Number, [Year] = @Year, [Make] = @Make, [Model] = @Model, [Trim] = @"& _ 
-                "Trim, [Color] = @Color, [Drivetrain] = @Drivetrain, [Mileage] = @Mileage, [True "& _ 
-                "Market Value] = @True_Market_Value, [Price] = @Price, [Profit] = @Profit, [Sell "& _ 
-                "Date] = @Sell_Date WHERE (([Transaction ID] = @Original_Transaction_ID) AND ((@I"& _ 
-                "sNull_Stock_Number = 1 AND [Stock Number] IS NULL) OR ([Stock Number] = @Origina"& _ 
-                "l_Stock_Number)) AND ([Year] = @Original_Year) AND ([Make] = @Original_Make) AND"& _ 
-                " ([Model] = @Original_Model) AND ((@IsNull_Trim = 1 AND [Trim] IS NULL) OR ([Tri"& _ 
-                "m] = @Original_Trim)) AND ([Color] = @Original_Color) AND ([Drivetrain] = @Origi"& _ 
-                "nal_Drivetrain) AND ([Mileage] = @Original_Mileage) AND ([True Market Value] = @"& _ 
-                "Original_True_Market_Value) AND ([Price] = @Original_Price) AND ((@IsNull_Profit"& _ 
-                " = 1 AND [Profit] IS NULL) OR ([Profit] = @Original_Profit)) AND ((@IsNull_Sell_"& _ 
-                "Date = 1 AND [Sell Date] IS NULL) OR ([Sell Date] = @Original_Sell_Date)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
-                "ECT [Transaction ID], [Stock Number], Year, Make, Model, Trim, Color, Drivetrain"& _ 
-                ", Mileage, [True Market Value], Price, Profit, [Sell Date] FROM [Sold Vehicles] "& _ 
-                "WHERE ([Transaction ID] = @Transaction_ID)"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Transaction_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Transaction ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Stock_Number", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@True_Market_Value", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "True Market Value", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Profit", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Profit", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sell_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sell Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Transaction_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Transaction ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Stock_Number", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Stock_Number", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Stock Number", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Year", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Trim", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_True_Market_Value", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "True Market Value", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Profit", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Profit", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Profit", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Profit", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sell_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sell Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sell_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sell Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.FinalProject.My.MySettings.Default.DreamVehiclesConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT [Transaction ID], [Stock Number], Year, Make, Model, Trim, Color, Drivetra"& _ 
-                "in, Mileage, [True Market Value], Price, Profit, [Sell Date] FROM dbo.[Sold Vehi"& _ 
-                "cles]"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DealerDataSet.Sold_VehiclesDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DealerDataSet.Sold_VehiclesDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DealerDataSet.Sold_VehiclesDataTable = New DealerDataSet.Sold_VehiclesDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DealerDataSet.Sold_VehiclesDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DealerDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Sold Vehicles")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Transaction_ID As Integer, ByVal Original_Stock_Number As String, ByVal Original_Year As Integer, ByVal Original_Make As String, ByVal Original_Model As String, ByVal Original_Trim As String, ByVal Original_Color As String, ByVal Original_Drivetrain As String, ByVal Original_Mileage As String, ByVal Original_True_Market_Value As String, ByVal Original_Price As Decimal, ByVal Original_Profit As Global.System.Nullable(Of Decimal), ByVal Original_Sell_Date As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Transaction_ID,Integer)
-            If (Original_Stock_Number Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Stock_Number,String)
-            End If
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Year,Integer)
-            If (Original_Make Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Make")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Make,String)
-            End If
-            If (Original_Model Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Model")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Model,String)
-            End If
-            If (Original_Trim Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_Trim,String)
-            End If
-            If (Original_Color Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Color")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Color,String)
-            End If
-            If (Original_Drivetrain Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Drivetrain")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Drivetrain,String)
-            End If
-            If (Original_Mileage Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Mileage")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Mileage,String)
-            End If
-            If (Original_True_Market_Value Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_True_Market_Value")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_True_Market_Value,String)
-            End If
-            Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Price,Decimal)
-            If (Original_Profit.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Profit.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Sell_Date.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Sell_Date.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Transaction_ID As Integer, ByVal Stock_Number As String, ByVal Year As Integer, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal True_Market_Value As String, ByVal Price As Decimal, ByVal Profit As Global.System.Nullable(Of Decimal), ByVal Sell_Date As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(Transaction_ID,Integer)
-            If (Stock_Number Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Stock_Number,String)
-            End If
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(Year,Integer)
-            If (Make Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Make")
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Make,String)
-            End If
-            If (Model Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Model")
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Model,String)
-            End If
-            If (Trim Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Trim,String)
-            End If
-            If (Color Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Color")
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Color,String)
-            End If
-            If (Drivetrain Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Drivetrain")
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Drivetrain,String)
-            End If
-            If (Mileage Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Mileage")
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Mileage,String)
-            End If
-            If (True_Market_Value Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("True_Market_Value")
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(True_Market_Value,String)
-            End If
-            Me.Adapter.InsertCommand.Parameters(10).Value = CType(Price,Decimal)
-            If (Profit.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Profit.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
-            If (Sell_Date.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Sell_Date.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Transaction_ID As Integer,  _
-                    ByVal Stock_Number As String,  _
-                    ByVal Year As Integer,  _
-                    ByVal Make As String,  _
-                    ByVal Model As String,  _
-                    ByVal Trim As String,  _
-                    ByVal Color As String,  _
-                    ByVal Drivetrain As String,  _
-                    ByVal Mileage As String,  _
-                    ByVal True_Market_Value As String,  _
-                    ByVal Price As Decimal,  _
-                    ByVal Profit As Global.System.Nullable(Of Decimal),  _
-                    ByVal Sell_Date As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Transaction_ID As Integer,  _
-                    ByVal Original_Stock_Number As String,  _
-                    ByVal Original_Year As Integer,  _
-                    ByVal Original_Make As String,  _
-                    ByVal Original_Model As String,  _
-                    ByVal Original_Trim As String,  _
-                    ByVal Original_Color As String,  _
-                    ByVal Original_Drivetrain As String,  _
-                    ByVal Original_Mileage As String,  _
-                    ByVal Original_True_Market_Value As String,  _
-                    ByVal Original_Price As Decimal,  _
-                    ByVal Original_Profit As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Sell_Date As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Transaction_ID,Integer)
-            If (Stock_Number Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Stock_Number,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Year,Integer)
-            If (Make Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Make")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Make,String)
-            End If
-            If (Model Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Model")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Model,String)
-            End If
-            If (Trim Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Trim,String)
-            End If
-            If (Color Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Color")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Color,String)
-            End If
-            If (Drivetrain Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Drivetrain")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Drivetrain,String)
-            End If
-            If (Mileage Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Mileage")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Mileage,String)
-            End If
-            If (True_Market_Value Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("True_Market_Value")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(True_Market_Value,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Price,Decimal)
-            If (Profit.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Profit.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
-            If (Sell_Date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Sell_Date.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Transaction_ID,Integer)
-            If (Original_Stock_Number Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Stock_Number,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Year,Integer)
-            If (Original_Make Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Make")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Make,String)
-            End If
-            If (Original_Model Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Model")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Model,String)
-            End If
-            If (Original_Trim Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Trim,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Trim,String)
             End If
             If (Original_Color Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Color")
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Color,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Color,String)
             End If
             If (Original_Drivetrain Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Drivetrain")
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Drivetrain,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Drivetrain,String)
             End If
             If (Original_Mileage Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Mileage")
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Mileage,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Mileage,String)
             End If
-            If (Original_True_Market_Value Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_True_Market_Value")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_True_Market_Value,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Price,Decimal)
-            If (Original_Profit.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Profit.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Sell_Date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Sell_Date.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_TrueMarketValue,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Price,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_ArrivalDate,Date)
+            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(StockNumber,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -2793,32 +1413,28 @@ Namespace DealerDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
-                    ByVal Stock_Number As String,  _
-                    ByVal Year As Integer,  _
+                    ByVal Year As String,  _
                     ByVal Make As String,  _
                     ByVal Model As String,  _
                     ByVal Trim As String,  _
                     ByVal Color As String,  _
                     ByVal Drivetrain As String,  _
                     ByVal Mileage As String,  _
-                    ByVal True_Market_Value As String,  _
+                    ByVal TrueMarketValue As Decimal,  _
                     ByVal Price As Decimal,  _
-                    ByVal Profit As Global.System.Nullable(Of Decimal),  _
-                    ByVal Sell_Date As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Transaction_ID As Integer,  _
-                    ByVal Original_Stock_Number As String,  _
-                    ByVal Original_Year As Integer,  _
+                    ByVal ArrivalDate As Date,  _
+                    ByVal Original_StockNumber As Integer,  _
+                    ByVal Original_Year As String,  _
                     ByVal Original_Make As String,  _
                     ByVal Original_Model As String,  _
                     ByVal Original_Trim As String,  _
                     ByVal Original_Color As String,  _
                     ByVal Original_Drivetrain As String,  _
                     ByVal Original_Mileage As String,  _
-                    ByVal Original_True_Market_Value As String,  _
+                    ByVal Original_TrueMarketValue As Decimal,  _
                     ByVal Original_Price As Decimal,  _
-                    ByVal Original_Profit As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Sell_Date As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(Original_Transaction_ID, Stock_Number, Year, Make, Model, Trim, Color, Drivetrain, Mileage, True_Market_Value, Price, Profit, Sell_Date, Original_Transaction_ID, Original_Stock_Number, Original_Year, Original_Make, Original_Model, Original_Trim, Original_Color, Original_Drivetrain, Original_Mileage, Original_True_Market_Value, Original_Price, Original_Profit, Original_Sell_Date)
+                    ByVal Original_ArrivalDate As Date) As Integer
+            Return Me.Update(Year, Make, Model, Trim, Color, Drivetrain, Mileage, TrueMarketValue, Price, ArrivalDate, Original_StockNumber, Original_Year, Original_Make, Original_Model, Original_Trim, Original_Color, Original_Drivetrain, Original_Mileage, Original_TrueMarketValue, Original_Price, Original_ArrivalDate, Original_StockNumber)
         End Function
     End Class
     
@@ -2835,9 +1451,7 @@ Namespace DealerDataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _inventoryTableAdapter As InventoryTableAdapter
-        
-        Private _sold_VehiclesTableAdapter As Sold_VehiclesTableAdapter
+        Private _inventory1TableAdapter As Inventory1TableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -2859,26 +1473,12 @@ Namespace DealerDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property InventoryTableAdapter() As InventoryTableAdapter
+        Public Property Inventory1TableAdapter() As Inventory1TableAdapter
             Get
-                Return Me._inventoryTableAdapter
+                Return Me._inventory1TableAdapter
             End Get
             Set
-                Me._inventoryTableAdapter = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property Sold_VehiclesTableAdapter() As Sold_VehiclesTableAdapter
-            Get
-                Return Me._sold_VehiclesTableAdapter
-            End Get
-            Set
-                Me._sold_VehiclesTableAdapter = value
+                Me._inventory1TableAdapter = value
             End Set
         End Property
         
@@ -2901,13 +1501,9 @@ Namespace DealerDataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._inventoryTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._inventoryTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._inventoryTableAdapter.Connection
-                End If
-                If ((Not (Me._sold_VehiclesTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._sold_VehiclesTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._sold_VehiclesTableAdapter.Connection
+                If ((Not (Me._inventory1TableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._inventory1TableAdapter.Connection) Is Nothing)) Then
+                    Return Me._inventory1TableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -2922,10 +1518,7 @@ Namespace DealerDataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._inventoryTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
-                If (Not (Me._sold_VehiclesTableAdapter) Is Nothing) Then
+                If (Not (Me._inventory1TableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -2939,21 +1532,12 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As DealerDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._inventoryTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Inventory.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._inventory1TableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Inventory1.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._inventoryTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._sold_VehiclesTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Sold_Vehicles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._sold_VehiclesTableAdapter.Update(updatedRows))
+                    result = (result + Me._inventory1TableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -2967,19 +1551,11 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As DealerDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._inventoryTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Inventory.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._inventory1TableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Inventory1.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._inventoryTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._sold_VehiclesTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Sold_Vehicles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._sold_VehiclesTableAdapter.Update(addedRows))
+                    result = (result + Me._inventory1TableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -2993,19 +1569,11 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As DealerDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._sold_VehiclesTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Sold_Vehicles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._inventory1TableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Inventory1.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._sold_VehiclesTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._inventoryTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Inventory.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._inventoryTableAdapter.Update(deletedRows))
+                    result = (result + Me._inventory1TableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -3050,13 +1618,8 @@ Namespace DealerDataSetTableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._inventoryTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._inventoryTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
-                        "tring.")
-            End If
-            If ((Not (Me._sold_VehiclesTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._sold_VehiclesTableAdapter.Connection) = false)) Then
+            If ((Not (Me._inventory1TableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._inventory1TableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -3092,22 +1655,13 @@ Namespace DealerDataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._inventoryTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._inventoryTableAdapter, Me._inventoryTableAdapter.Connection)
-                    Me._inventoryTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._inventoryTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._inventoryTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._inventoryTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._inventoryTableAdapter.Adapter)
-                    End If
-                End If
-                If (Not (Me._sold_VehiclesTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._sold_VehiclesTableAdapter, Me._sold_VehiclesTableAdapter.Connection)
-                    Me._sold_VehiclesTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._sold_VehiclesTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._sold_VehiclesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._sold_VehiclesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._sold_VehiclesTableAdapter.Adapter)
+                If (Not (Me._inventory1TableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._inventory1TableAdapter, Me._inventory1TableAdapter.Connection)
+                    Me._inventory1TableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._inventory1TableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._inventory1TableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._inventory1TableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._inventory1TableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -3170,13 +1724,9 @@ Namespace DealerDataSetTableAdapters
                 If workConnOpened Then
                     workConnection.Close
                 End If
-                If (Not (Me._inventoryTableAdapter) Is Nothing) Then
-                    Me._inventoryTableAdapter.Connection = CType(revertConnections(Me._inventoryTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._inventoryTableAdapter.Transaction = Nothing
-                End If
-                If (Not (Me._sold_VehiclesTableAdapter) Is Nothing) Then
-                    Me._sold_VehiclesTableAdapter.Connection = CType(revertConnections(Me._sold_VehiclesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._sold_VehiclesTableAdapter.Transaction = Nothing
+                If (Not (Me._inventory1TableAdapter) Is Nothing) Then
+                    Me._inventory1TableAdapter.Connection = CType(revertConnections(Me._inventory1TableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._inventory1TableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

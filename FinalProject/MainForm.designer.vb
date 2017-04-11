@@ -71,7 +71,7 @@ Partial Class MainForm
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 26)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(122, 26)
         Me.CloseToolStripMenuItem.Text = "Close "
         '
         'InventoryToolStripMenuItem
@@ -85,37 +85,37 @@ Partial Class MainForm
         'AddVehicleToolStripMenuItem
         '
         Me.AddVehicleToolStripMenuItem.Name = "AddVehicleToolStripMenuItem"
-        Me.AddVehicleToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
+        Me.AddVehicleToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.AddVehicleToolStripMenuItem.Text = "Add Vehicle"
         '
         'RemoveVehicleToolStripMenuItem
         '
         Me.RemoveVehicleToolStripMenuItem.Name = "RemoveVehicleToolStripMenuItem"
-        Me.RemoveVehicleToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
+        Me.RemoveVehicleToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.RemoveVehicleToolStripMenuItem.Text = "Remove Vehicle"
         '
         'SellVehicleToolStripMenuItem
         '
         Me.SellVehicleToolStripMenuItem.Name = "SellVehicleToolStripMenuItem"
-        Me.SellVehicleToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
+        Me.SellVehicleToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.SellVehicleToolStripMenuItem.Text = "Sell Vehicle"
         '
         'EditVehicleToolStripMenuItem
         '
         Me.EditVehicleToolStripMenuItem.Name = "EditVehicleToolStripMenuItem"
-        Me.EditVehicleToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
+        Me.EditVehicleToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.EditVehicleToolStripMenuItem.Text = "Edit Vehicle "
         '
         'ViewInventoryToolStripMenuItem
         '
         Me.ViewInventoryToolStripMenuItem.Name = "ViewInventoryToolStripMenuItem"
-        Me.ViewInventoryToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
-        Me.ViewInventoryToolStripMenuItem.Text = "View Inventory"
+        Me.ViewInventoryToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
+        Me.ViewInventoryToolStripMenuItem.Text = "Inventory Report"
         '
         'SoldVehiclesToolStripMenuItem
         '
         Me.SoldVehiclesToolStripMenuItem.Name = "SoldVehiclesToolStripMenuItem"
-        Me.SoldVehiclesToolStripMenuItem.Size = New System.Drawing.Size(191, 26)
+        Me.SoldVehiclesToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.SoldVehiclesToolStripMenuItem.Text = "Sold Vehicles"
         '
         'DealerToolStripMenuItem
