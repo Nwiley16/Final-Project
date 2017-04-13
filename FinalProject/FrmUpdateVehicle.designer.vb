@@ -22,7 +22,7 @@ Partial Class FrmUpdateVehicle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboDrivetrain = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -48,13 +48,13 @@ Partial Class FrmUpdateVehicle
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ComboBox1
+        'cboDrivetrain
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(181, 298)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
-        Me.ComboBox1.TabIndex = 33
+        Me.cboDrivetrain.FormattingEnabled = True
+        Me.cboDrivetrain.Location = New System.Drawing.Point(181, 298)
+        Me.cboDrivetrain.Name = "cboDrivetrain"
+        Me.cboDrivetrain.Size = New System.Drawing.Size(100, 21)
+        Me.cboDrivetrain.TabIndex = 33
         '
         'Label8
         '
@@ -264,7 +264,7 @@ Partial Class FrmUpdateVehicle
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtStockNum)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cboDrivetrain)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -287,7 +287,7 @@ Partial Class FrmUpdateVehicle
 
     End Sub
 
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboDrivetrain As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label

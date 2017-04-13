@@ -29,6 +29,7 @@ Partial Class FrmInventory
         Me.DealerDataSet = New FinalProject.DealerDataSet()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Inventory1TableAdapter = New FinalProject.DealerDataSetTableAdapters.Inventory1TableAdapter()
+        Me.StockNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.YearDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MakeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,7 +39,6 @@ Partial Class FrmInventory
         Me.MileageDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TrueMarketValue = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ArrivalDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inventory1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,11 +51,11 @@ Partial Class FrmInventory
         Me.dgvInventory.AllowUserToOrderColumns = True
         Me.dgvInventory.AutoGenerateColumns = False
         Me.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvInventory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.YearDataGridViewTextBoxColumn, Me.MakeDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.TrimDataGridViewTextBoxColumn, Me.ColorDataGridViewTextBoxColumn, Me.DrivetrainDataGridViewTextBoxColumn, Me.MileageDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.TrueMarketValue, Me.Price, Me.ArrivalDate})
+        Me.dgvInventory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.StockNumber, Me.YearDataGridViewTextBoxColumn, Me.MakeDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.TrimDataGridViewTextBoxColumn, Me.ColorDataGridViewTextBoxColumn, Me.DrivetrainDataGridViewTextBoxColumn, Me.MileageDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.TrueMarketValue, Me.ArrivalDate})
         Me.dgvInventory.DataSource = Me.Inventory1BindingSource
         Me.dgvInventory.Location = New System.Drawing.Point(-1, 198)
         Me.dgvInventory.Name = "dgvInventory"
-        Me.dgvInventory.Size = New System.Drawing.Size(1135, 283)
+        Me.dgvInventory.Size = New System.Drawing.Size(1268, 283)
         Me.dgvInventory.TabIndex = 48
         '
         'Inventory1BindingSource
@@ -89,6 +89,13 @@ Partial Class FrmInventory
         'Inventory1TableAdapter
         '
         Me.Inventory1TableAdapter.ClearBeforeFill = True
+        '
+        'StockNumber
+        '
+        Me.StockNumber.DataPropertyName = "StockNumber"
+        Me.StockNumber.HeaderText = "StockNumber"
+        Me.StockNumber.Name = "StockNumber"
+        Me.StockNumber.ReadOnly = True
         '
         'YearDataGridViewTextBoxColumn
         '
@@ -152,12 +159,6 @@ Partial Class FrmInventory
         Me.TrueMarketValue.HeaderText = "TrueMarketValue"
         Me.TrueMarketValue.Name = "TrueMarketValue"
         '
-        'Price
-        '
-        Me.Price.DataPropertyName = "Price"
-        Me.Price.HeaderText = "Price"
-        Me.Price.Name = "Price"
-        '
         'ArrivalDate
         '
         Me.ArrivalDate.DataPropertyName = "ArrivalDate"
@@ -168,7 +169,7 @@ Partial Class FrmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1146, 493)
+        Me.ClientSize = New System.Drawing.Size(1247, 493)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.dgvInventory)
         Me.Name = "FrmInventory"
@@ -188,6 +189,7 @@ Partial Class FrmInventory
     Friend WithEvents DealerDataSet1 As DealerDataSet
     Friend WithEvents Inventory1BindingSource As BindingSource
     Friend WithEvents Inventory1TableAdapter As DealerDataSetTableAdapters.Inventory1TableAdapter
+    Friend WithEvents StockNumber As DataGridViewTextBoxColumn
     Friend WithEvents YearDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MakeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -197,6 +199,5 @@ Partial Class FrmInventory
     Friend WithEvents MileageDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TrueMarketValue As DataGridViewTextBoxColumn
-    Friend WithEvents Price As DataGridViewTextBoxColumn
     Friend WithEvents ArrivalDate As DataGridViewTextBoxColumn
 End Class

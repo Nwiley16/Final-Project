@@ -1019,26 +1019,9 @@ Namespace DealerDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Inventory1] WHERE (([StockNumber] = @Original_StockNumber) AND"& _ 
-                " ([Year] = @Original_Year) AND ([Make] = @Original_Make) AND ([Model] = @Origina"& _ 
-                "l_Model) AND ((@IsNull_Trim = 1 AND [Trim] IS NULL) OR ([Trim] = @Original_Trim)"& _ 
-                ") AND ([Color] = @Original_Color) AND ([Drivetrain] = @Original_Drivetrain) AND "& _ 
-                "([Mileage] = @Original_Mileage) AND ([TrueMarketValue] = @Original_TrueMarketVal"& _ 
-                "ue) AND ([Price] = @Original_Price) AND ([ArrivalDate] = @Original_ArrivalDate))"& _ 
-                ""
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM Inventory1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (StockNumber = @StockNumber)"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StockNumber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Year", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Trim", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TrueMarketValue", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TrueMarketValue", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StockNumber", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Inventory1] ([Year], [Make], [Model], [Trim], [Color], [Drivet"& _ 
@@ -1060,41 +1043,22 @@ Namespace DealerDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Inventory1] SET [Year] = @Year, [Make] = @Make, [Model] = @Model, ["& _ 
-                "Trim] = @Trim, [Color] = @Color, [Drivetrain] = @Drivetrain, [Mileage] = @Mileag"& _ 
-                "e, [TrueMarketValue] = @TrueMarketValue, [Price] = @Price, [ArrivalDate] = @Arri"& _ 
-                "valDate WHERE (([StockNumber] = @Original_StockNumber) AND ([Year] = @Original_Y"& _ 
-                "ear) AND ([Make] = @Original_Make) AND ([Model] = @Original_Model) AND ((@IsNull"& _ 
-                "_Trim = 1 AND [Trim] IS NULL) OR ([Trim] = @Original_Trim)) AND ([Color] = @Orig"& _ 
-                "inal_Color) AND ([Drivetrain] = @Original_Drivetrain) AND ([Mileage] = @Original"& _ 
-                "_Mileage) AND ([TrueMarketValue] = @Original_TrueMarketValue) AND ([Price] = @Or"& _ 
-                "iginal_Price) AND ([ArrivalDate] = @Original_ArrivalDate));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT StockNumber,"& _ 
-                " Year, Make, Model, Trim, Color, Drivetrain, Mileage, TrueMarketValue, Price, Ar"& _ 
-                "rivalDate FROM Inventory1 WHERE (StockNumber = @StockNumber)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE       Inventory1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                StockNumber = @StockNumber, Year = @Y"& _ 
+                "ear, Make = @Make, Model = @Model, Trim = @Trim, Color = @Color, Drivetrain = @D"& _ 
+                "rivetrain, Mileage = @Mileage, Price = @Price, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (StockNumber = @St"& _ 
+                "ockNumber);      "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT StockNumber, Year, Make, Model, Trim, Color, Drivetrai"& _ 
+                "n, Mileage, TrueMarketValue, Price, ArrivalDate FROM Inventory1 WHERE (StockNumb"& _ 
+                "er = @StockNumber)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TrueMarketValue", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TrueMarketValue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StockNumber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Year", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Make", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Model", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Trim", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Trim", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Color", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Drivetrain", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Mileage", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TrueMarketValue", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TrueMarketValue", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Price", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StockNumber", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.NVarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Make", Global.System.Data.SqlDbType.NVarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Trim", Global.System.Data.SqlDbType.NVarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Trim", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Color", Global.System.Data.SqlDbType.NVarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NVarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Mileage", Global.System.Data.SqlDbType.NVarChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Money, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1171,48 +1135,8 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_StockNumber As Integer, ByVal Original_Year As String, ByVal Original_Make As String, ByVal Original_Model As String, ByVal Original_Trim As String, ByVal Original_Color As String, ByVal Original_Drivetrain As String, ByVal Original_Mileage As String, ByVal Original_TrueMarketValue As Decimal, ByVal Original_Price As Decimal, ByVal Original_ArrivalDate As Date) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_StockNumber,Integer)
-            If (Original_Year Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Year")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Year,String)
-            End If
-            If (Original_Make Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Make")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Make,String)
-            End If
-            If (Original_Model Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Model")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Model,String)
-            End If
-            If (Original_Trim Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Trim,String)
-            End If
-            If (Original_Color Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Color")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Color,String)
-            End If
-            If (Original_Drivetrain Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Drivetrain")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_Drivetrain,String)
-            End If
-            If (Original_Mileage Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Mileage")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Mileage,String)
-            End If
-            Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_TrueMarketValue,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Price,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_ArrivalDate,Date)
+        Public Overloads Overridable Function Delete(ByVal StockNumber As Integer) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(StockNumber,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1290,109 +1214,44 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Year As String,  _
-                    ByVal Make As String,  _
-                    ByVal Model As String,  _
-                    ByVal Trim As String,  _
-                    ByVal Color As String,  _
-                    ByVal Drivetrain As String,  _
-                    ByVal Mileage As String,  _
-                    ByVal TrueMarketValue As Decimal,  _
-                    ByVal Price As Decimal,  _
-                    ByVal ArrivalDate As Date,  _
-                    ByVal Original_StockNumber As Integer,  _
-                    ByVal Original_Year As String,  _
-                    ByVal Original_Make As String,  _
-                    ByVal Original_Model As String,  _
-                    ByVal Original_Trim As String,  _
-                    ByVal Original_Color As String,  _
-                    ByVal Original_Drivetrain As String,  _
-                    ByVal Original_Mileage As String,  _
-                    ByVal Original_TrueMarketValue As Decimal,  _
-                    ByVal Original_Price As Decimal,  _
-                    ByVal Original_ArrivalDate As Date,  _
-                    ByVal StockNumber As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal StockNumber As Integer, ByVal Year As String, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal Price As Decimal) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(StockNumber,Integer)
             If (Year Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Year")
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Year,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Year,String)
             End If
             If (Make Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Make")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Make,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Make,String)
             End If
             If (Model Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Model")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Model,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Model,String)
             End If
             If (Trim Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Trim,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Trim,String)
             End If
             If (Color Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Color")
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Color,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Color,String)
             End If
             If (Drivetrain Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Drivetrain")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Drivetrain,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Drivetrain,String)
             End If
             If (Mileage Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Mileage")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Mileage,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Mileage,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(TrueMarketValue,Decimal)
             Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Price,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ArrivalDate,Date)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_StockNumber,Integer)
-            If (Original_Year Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Year")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Year,String)
-            End If
-            If (Original_Make Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Make")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Make,String)
-            End If
-            If (Original_Model Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Model")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Model,String)
-            End If
-            If (Original_Trim Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Trim,String)
-            End If
-            If (Original_Color Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Color")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Color,String)
-            End If
-            If (Original_Drivetrain Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Drivetrain")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Drivetrain,String)
-            End If
-            If (Original_Mileage Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Mileage")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Mileage,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_TrueMarketValue,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Price,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_ArrivalDate,Date)
-            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(StockNumber,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1406,35 +1265,6 @@ Namespace DealerDataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Year As String,  _
-                    ByVal Make As String,  _
-                    ByVal Model As String,  _
-                    ByVal Trim As String,  _
-                    ByVal Color As String,  _
-                    ByVal Drivetrain As String,  _
-                    ByVal Mileage As String,  _
-                    ByVal TrueMarketValue As Decimal,  _
-                    ByVal Price As Decimal,  _
-                    ByVal ArrivalDate As Date,  _
-                    ByVal Original_StockNumber As Integer,  _
-                    ByVal Original_Year As String,  _
-                    ByVal Original_Make As String,  _
-                    ByVal Original_Model As String,  _
-                    ByVal Original_Trim As String,  _
-                    ByVal Original_Color As String,  _
-                    ByVal Original_Drivetrain As String,  _
-                    ByVal Original_Mileage As String,  _
-                    ByVal Original_TrueMarketValue As Decimal,  _
-                    ByVal Original_Price As Decimal,  _
-                    ByVal Original_ArrivalDate As Date) As Integer
-            Return Me.Update(Year, Make, Model, Trim, Color, Drivetrain, Mileage, TrueMarketValue, Price, ArrivalDate, Original_StockNumber, Original_Year, Original_Make, Original_Model, Original_Trim, Original_Color, Original_Drivetrain, Original_Mileage, Original_TrueMarketValue, Original_Price, Original_ArrivalDate, Original_StockNumber)
         End Function
     End Class
     

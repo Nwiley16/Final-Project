@@ -1,11 +1,7 @@
 ﻿Public Class FrmAddVehicle
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
 
-    End Sub
+    Private mVehicle As New Vehicle
 
-    Private Sub txtYear_TextChanged(sender As Object, e As EventArgs) Handles txtYear.TextChanged
-
-    End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
@@ -17,5 +13,19 @@
         cboDrivetrain.Items.Add("AWD")
         cboDrivetrain.Items.Add("4WD")
 
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        lblStatus.Text = ""
+
+        If mVehicle.Insert(CInt(txtStockNum.Text), CInt(txtYear.Text),
+                           txtMake.Text, txtModel.Text, txtTrim.Text, txtColor.Text,
+                           cboDrivetrain.Text, CInt(txtMileage.Text),
+                              CDec(txtTMV.Text), CDec(txtPrice.Text), dtpArrival.Value) Then
+
+
+
+        End If
+        lblStatus.Text = mVehicle.LastStatus
     End Sub
 End Class

@@ -46,12 +46,14 @@ Partial Class FrmAddVehicle
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpArrival = New System.Windows.Forms.DateTimePicker()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtStockNum
         '
-        Me.txtStockNum.Enabled = False
         Me.txtStockNum.Location = New System.Drawing.Point(183, 32)
         Me.txtStockNum.Name = "txtStockNum"
         Me.txtStockNum.Size = New System.Drawing.Size(100, 20)
@@ -263,20 +265,36 @@ Partial Class FrmAddVehicle
         Me.Label12.TabIndex = 24
         Me.Label12.Text = "Arrival Date:"
         '
-        'DateTimePicker1
+        'dtpArrival
         '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(431, 354)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(106, 20)
-        Me.DateTimePicker1.TabIndex = 25
+        Me.dtpArrival.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpArrival.Location = New System.Drawing.Point(431, 354)
+        Me.dtpArrival.Name = "dtpArrival"
+        Me.dtpArrival.Size = New System.Drawing.Size(106, 20)
+        Me.dtpArrival.TabIndex = 25
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 429)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(591, 22)
+        Me.StatusStrip1.TabIndex = 26
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'lblStatus
+        '
+        Me.lblStatus.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(0, 17)
         '
         'FrmAddVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(591, 429)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.ClientSize = New System.Drawing.Size(591, 451)
+        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.dtpArrival)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.BtnClose)
@@ -303,6 +321,8 @@ Partial Class FrmAddVehicle
         Me.Controls.Add(Me.txtStockNum)
         Me.Name = "FrmAddVehicle"
         Me.Text = "Add Vehicle"
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -332,5 +352,7 @@ Partial Class FrmAddVehicle
     Friend WithEvents BtnClose As Button
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtpArrival As DateTimePicker
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents lblStatus As ToolStripStatusLabel
 End Class
