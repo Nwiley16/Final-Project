@@ -22,6 +22,7 @@ Partial Class FrmRemoveVehicle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
         Me.dgvInventory = New System.Windows.Forms.DataGridView()
@@ -29,8 +30,24 @@ Partial Class FrmRemoveVehicle
         Me.txtStockNum = New System.Windows.Forms.TextBox()
         Me.btnRemove = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.DealerDataSet = New FinalProject.DealerDataSet()
+        Me.Inventory1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Inventory1TableAdapter = New FinalProject.DealerDataSetTableAdapters.Inventory1TableAdapter()
+        Me.StockNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.YearDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MakeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TrimDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DrivetrainDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MileageDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TrueMarketValueDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ArrivalDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DealerDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Inventory1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -49,9 +66,14 @@ Partial Class FrmRemoveVehicle
         '
         'dgvInventory
         '
+        Me.dgvInventory.AllowUserToAddRows = False
+        Me.dgvInventory.AutoGenerateColumns = False
         Me.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvInventory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.StockNumberDataGridViewTextBoxColumn, Me.YearDataGridViewTextBoxColumn, Me.MakeDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.TrimDataGridViewTextBoxColumn, Me.ColorDataGridViewTextBoxColumn, Me.DrivetrainDataGridViewTextBoxColumn, Me.MileageDataGridViewTextBoxColumn, Me.TrueMarketValueDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.ArrivalDateDataGridViewTextBoxColumn})
+        Me.dgvInventory.DataSource = Me.Inventory1BindingSource
         Me.dgvInventory.Location = New System.Drawing.Point(12, 86)
         Me.dgvInventory.Name = "dgvInventory"
+        Me.dgvInventory.ReadOnly = True
         Me.dgvInventory.Size = New System.Drawing.Size(585, 192)
         Me.dgvInventory.TabIndex = 44
         '
@@ -67,7 +89,6 @@ Partial Class FrmRemoveVehicle
         '
         'txtStockNum
         '
-        Me.txtStockNum.Enabled = False
         Me.txtStockNum.Location = New System.Drawing.Point(198, 40)
         Me.txtStockNum.Name = "txtStockNum"
         Me.txtStockNum.Size = New System.Drawing.Size(100, 20)
@@ -95,6 +116,97 @@ Partial Class FrmRemoveVehicle
         Me.Label2.Text = "Dream Vehicles"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'DealerDataSet
+        '
+        Me.DealerDataSet.DataSetName = "DealerDataSet"
+        Me.DealerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Inventory1BindingSource
+        '
+        Me.Inventory1BindingSource.DataMember = "Inventory1"
+        Me.Inventory1BindingSource.DataSource = Me.DealerDataSet
+        '
+        'Inventory1TableAdapter
+        '
+        Me.Inventory1TableAdapter.ClearBeforeFill = True
+        '
+        'StockNumberDataGridViewTextBoxColumn
+        '
+        Me.StockNumberDataGridViewTextBoxColumn.DataPropertyName = "StockNumber"
+        Me.StockNumberDataGridViewTextBoxColumn.HeaderText = "StockNumber"
+        Me.StockNumberDataGridViewTextBoxColumn.Name = "StockNumberDataGridViewTextBoxColumn"
+        Me.StockNumberDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'YearDataGridViewTextBoxColumn
+        '
+        Me.YearDataGridViewTextBoxColumn.DataPropertyName = "Year"
+        Me.YearDataGridViewTextBoxColumn.HeaderText = "Year"
+        Me.YearDataGridViewTextBoxColumn.Name = "YearDataGridViewTextBoxColumn"
+        Me.YearDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MakeDataGridViewTextBoxColumn
+        '
+        Me.MakeDataGridViewTextBoxColumn.DataPropertyName = "Make"
+        Me.MakeDataGridViewTextBoxColumn.HeaderText = "Make"
+        Me.MakeDataGridViewTextBoxColumn.Name = "MakeDataGridViewTextBoxColumn"
+        Me.MakeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ModelDataGridViewTextBoxColumn
+        '
+        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
+        Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
+        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
+        Me.ModelDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TrimDataGridViewTextBoxColumn
+        '
+        Me.TrimDataGridViewTextBoxColumn.DataPropertyName = "Trim"
+        Me.TrimDataGridViewTextBoxColumn.HeaderText = "Trim"
+        Me.TrimDataGridViewTextBoxColumn.Name = "TrimDataGridViewTextBoxColumn"
+        Me.TrimDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ColorDataGridViewTextBoxColumn
+        '
+        Me.ColorDataGridViewTextBoxColumn.DataPropertyName = "Color"
+        Me.ColorDataGridViewTextBoxColumn.HeaderText = "Color"
+        Me.ColorDataGridViewTextBoxColumn.Name = "ColorDataGridViewTextBoxColumn"
+        Me.ColorDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DrivetrainDataGridViewTextBoxColumn
+        '
+        Me.DrivetrainDataGridViewTextBoxColumn.DataPropertyName = "Drivetrain"
+        Me.DrivetrainDataGridViewTextBoxColumn.HeaderText = "Drivetrain"
+        Me.DrivetrainDataGridViewTextBoxColumn.Name = "DrivetrainDataGridViewTextBoxColumn"
+        Me.DrivetrainDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MileageDataGridViewTextBoxColumn
+        '
+        Me.MileageDataGridViewTextBoxColumn.DataPropertyName = "Mileage"
+        Me.MileageDataGridViewTextBoxColumn.HeaderText = "Mileage"
+        Me.MileageDataGridViewTextBoxColumn.Name = "MileageDataGridViewTextBoxColumn"
+        Me.MileageDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TrueMarketValueDataGridViewTextBoxColumn
+        '
+        Me.TrueMarketValueDataGridViewTextBoxColumn.DataPropertyName = "TrueMarketValue"
+        Me.TrueMarketValueDataGridViewTextBoxColumn.HeaderText = "TrueMarketValue"
+        Me.TrueMarketValueDataGridViewTextBoxColumn.Name = "TrueMarketValueDataGridViewTextBoxColumn"
+        Me.TrueMarketValueDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PriceDataGridViewTextBoxColumn
+        '
+        Me.PriceDataGridViewTextBoxColumn.DataPropertyName = "Price"
+        Me.PriceDataGridViewTextBoxColumn.HeaderText = "Price"
+        Me.PriceDataGridViewTextBoxColumn.Name = "PriceDataGridViewTextBoxColumn"
+        Me.PriceDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ArrivalDateDataGridViewTextBoxColumn
+        '
+        Me.ArrivalDateDataGridViewTextBoxColumn.DataPropertyName = "ArrivalDate"
+        Me.ArrivalDateDataGridViewTextBoxColumn.HeaderText = "ArrivalDate"
+        Me.ArrivalDateDataGridViewTextBoxColumn.Name = "ArrivalDateDataGridViewTextBoxColumn"
+        Me.ArrivalDateDataGridViewTextBoxColumn.ReadOnly = True
+        '
         'FrmRemoveVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -111,6 +223,8 @@ Partial Class FrmRemoveVehicle
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DealerDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Inventory1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -123,4 +237,18 @@ Partial Class FrmRemoveVehicle
     Friend WithEvents txtStockNum As TextBox
     Friend WithEvents btnRemove As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents DealerDataSet As DealerDataSet
+    Friend WithEvents Inventory1BindingSource As BindingSource
+    Friend WithEvents Inventory1TableAdapter As DealerDataSetTableAdapters.Inventory1TableAdapter
+    Friend WithEvents StockNumberDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents YearDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MakeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TrimDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ColorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DrivetrainDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MileageDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TrueMarketValueDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ArrivalDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

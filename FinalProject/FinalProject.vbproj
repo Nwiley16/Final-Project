@@ -93,6 +93,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DealerDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DealerDataSet.vb">
+      <DependentUpon>DealerDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmAddVehicle.designer.vb">
       <DependentUpon>FrmAddVehicle.vb</DependentUpon>
     </Compile>

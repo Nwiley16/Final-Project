@@ -52,6 +52,12 @@
         Return Result
     End Function
 
+    Public Function GetSumOfValue()
+
+        Return adapter.CalcDealerValue()
+
+    End Function
+
     Public Function GetByStockNumber(ByVal StockNumber As Short) As DataTable
 
         Dim table As DataTable = adapter.GetData()

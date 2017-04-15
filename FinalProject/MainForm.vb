@@ -24,4 +24,8 @@
         FrmUpdateVehicle.ShowDialog()
 
     End Sub
+
+    Private Sub InventoryStatusToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventoryStatusToolStripMenuItem.Click
+        FrmDealerStatus.ShowDialog()
+    End Sub
 End Class

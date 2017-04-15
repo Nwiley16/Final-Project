@@ -6,6 +6,8 @@
     End Sub
 
     Private Sub FrmRemoveVehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DealerDataSet.Inventory1' table. You can move, or remove it, as needed.
+        Me.Inventory1TableAdapter.Fill(Me.DealerDataSet.Inventory1)
 
     End Sub
 
