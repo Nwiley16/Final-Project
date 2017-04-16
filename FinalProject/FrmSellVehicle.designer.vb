@@ -40,9 +40,9 @@ Partial Class FrmSellVehicle
         Me.txtModel = New System.Windows.Forms.TextBox()
         Me.txtMake = New System.Windows.Forms.TextBox()
         Me.txtYear = New System.Windows.Forms.TextBox()
-        Me.txtPrice = New System.Windows.Forms.MaskedTextBox()
+        Me.txtTMV = New System.Windows.Forms.MaskedTextBox()
         Me.txtStockNum = New System.Windows.Forms.TextBox()
-        Me.txtSellPrice = New System.Windows.Forms.MaskedTextBox()
+        Me.txtPrice = New System.Windows.Forms.MaskedTextBox()
         Me.txtSaleID = New System.Windows.Forms.MaskedTextBox()
         Me.btnSell = New System.Windows.Forms.Button()
         Me.BtnClose = New System.Windows.Forms.Button()
@@ -226,12 +226,12 @@ Partial Class FrmSellVehicle
         Me.txtYear.Size = New System.Drawing.Size(100, 20)
         Me.txtYear.TabIndex = 20
         '
-        'txtPrice
+        'txtTMV
         '
-        Me.txtPrice.Location = New System.Drawing.Point(176, 147)
-        Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(100, 20)
-        Me.txtPrice.TabIndex = 36
+        Me.txtTMV.Location = New System.Drawing.Point(176, 147)
+        Me.txtTMV.Name = "txtTMV"
+        Me.txtTMV.Size = New System.Drawing.Size(100, 20)
+        Me.txtTMV.TabIndex = 36
         '
         'txtStockNum
         '
@@ -240,12 +240,12 @@ Partial Class FrmSellVehicle
         Me.txtStockNum.Size = New System.Drawing.Size(100, 20)
         Me.txtStockNum.TabIndex = 34
         '
-        'txtSellPrice
+        'txtPrice
         '
-        Me.txtSellPrice.Location = New System.Drawing.Point(176, 100)
-        Me.txtSellPrice.Name = "txtSellPrice"
-        Me.txtSellPrice.Size = New System.Drawing.Size(100, 20)
-        Me.txtSellPrice.TabIndex = 37
+        Me.txtPrice.Location = New System.Drawing.Point(176, 100)
+        Me.txtPrice.Name = "txtPrice"
+        Me.txtPrice.Size = New System.Drawing.Size(100, 20)
+        Me.txtPrice.TabIndex = 37
         '
         'txtSaleID
         '
@@ -372,8 +372,8 @@ Partial Class FrmSellVehicle
         Me.Controls.Add(Me.BtnClose)
         Me.Controls.Add(Me.btnSell)
         Me.Controls.Add(Me.txtSaleID)
-        Me.Controls.Add(Me.txtSellPrice)
         Me.Controls.Add(Me.txtPrice)
+        Me.Controls.Add(Me.txtTMV)
         Me.Controls.Add(Me.txtStockNum)
         Me.Controls.Add(Me.cboDrivetrain)
         Me.Controls.Add(Me.Label8)
@@ -420,9 +420,9 @@ Partial Class FrmSellVehicle
     Friend WithEvents txtModel As TextBox
     Friend WithEvents txtMake As TextBox
     Friend WithEvents txtYear As TextBox
-    Friend WithEvents txtPrice As MaskedTextBox
+    Friend WithEvents txtTMV As MaskedTextBox
     Friend WithEvents txtStockNum As TextBox
-    Friend WithEvents txtSellPrice As MaskedTextBox
+    Friend WithEvents txtPrice As MaskedTextBox
     Friend WithEvents txtSaleID As MaskedTextBox
     Friend WithEvents btnSell As Button
     Friend WithEvents BtnClose As Button

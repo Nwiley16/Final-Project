@@ -103,12 +103,11 @@
 
     End Function
 
-    Public Function FindByStockNumber(ByVal StockNumber As Integer) As DealerDataSet.Inventory1Row
+    Public Function FindByStockNumber(ByVal pStockNumber As Integer) As DealerDataSet.Inventory1Row
 
         Dim table As DealerDataSet.Inventory1DataTable
         table = adapter.GetData()
-        Return table.FindByStockNumber(StockNumber)
-
+        Return table.FindByStockNumber(pStockNumber)
     End Function
 
 
