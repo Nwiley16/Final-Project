@@ -21,10 +21,6 @@
 
         txtProfit.Text = txtPrice.Text - txtTMV.Text
 
-        If dtpSale.Value = dtpArrival.Value.AddDays(10) Then
-            txtPrice.Text = txtPrice.Text - txtTMV.Text * 0.05
-        End If
-
 
 
     End Sub
@@ -34,7 +30,7 @@
 
     Private Sub dtpSale_ValueChanged(sender As Object, e As EventArgs) Handles dtpSale.ValueChanged
         If dtpSale.Value = dtpArrival.Value.AddDays(10) Then
-            txtTMV.Text = txtTMV.Text - txtTMV.Text * 0.05
+            txtTMV.Text = txtPrice.Text - txtPrice.Text * 0.05
         End If
 
 
@@ -43,7 +39,11 @@
     End Sub
 
     Private Sub btnSell_Click(sender As Object, e As EventArgs) Handles btnSell.Click
+        mSoldVehicle.Sell(CInt(txtSaleID.Text), CInt(txtYear.Text), txtMake.Text, txtModel.Text,
+                            txtModel.Text, txtTrim.Text, cboDrivetrain.Text, CInt(txtMileage.Text),
+                            CDec(txtPrice.Text), CDec(txtProfit.Text), dtpSale.Value)
 
+        mVehicle.Delete(txtStockNum.Text)
     End Sub
 
     Private Sub txtSellPrice_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles txtPrice.MaskInputRejected

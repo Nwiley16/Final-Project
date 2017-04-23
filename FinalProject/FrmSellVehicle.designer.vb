@@ -304,6 +304,7 @@ Partial Class FrmSellVehicle
         '
         'dtpArrival
         '
+        Me.dtpArrival.Enabled = False
         Me.dtpArrival.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpArrival.Location = New System.Drawing.Point(548, 343)
         Me.dtpArrival.Name = "dtpArrival"

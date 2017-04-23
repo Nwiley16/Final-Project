@@ -24,7 +24,7 @@
     Public Function Sell(pSaleID As Integer, pYear As Integer,
                       pMake As String, pModel As String, pTrim As String,
                       pColor As String, pDriveTrain As String, pMiles As Integer,
-                      pSalePrice As Decimal, pProfit As Decimal) As Boolean
+                      pSalePrice As Decimal, pProfit As Decimal, pSellDate As DateTime) As Boolean
         Dim Result As Boolean = False
         Try
 
