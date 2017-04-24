@@ -21,6 +21,8 @@
 
         txtProfit.Text = txtPrice.Text - txtTMV.Text
 
+        txtSaleID.Text = txtStockNum.Text + 105
+
 
 
     End Sub
@@ -44,11 +46,18 @@
     End Sub
 
     Private Sub btnSell_Click(sender As Object, e As EventArgs) Handles btnSell.Click
-        mSoldVehicle.Sell(CInt(txtSaleID.Text), CInt(txtYear.Text), txtMake.Text, txtModel.Text,
-                            txtModel.Text, txtTrim.Text, cboDrivetrain.Text, CInt(txtMileage.Text),
-                            CDec(txtPrice.Text), CDec(txtProfit.Text), dtpSale.Value)
+        lblStatus.Text = ""
 
-        mVehicle.Delete(txtStockNum.Text)
+
+        If mSoldVehicle.Sell(CInt(txtSaleID.Text), CInt(txtYear.Text), txtMake.Text, txtModel.Text,
+                            txtModel.Text, txtTrim.Text, cboDrivetrain.Text, CInt(txtMileage.Text),
+                            CDec(txtPrice.Text), CDec(txtProfit.Text), dtpSale.Value) Then
+            mVehicle.Delete(txtStockNum.Text)
+        End If
+
+        lblStatus.Text = mVehicle.LastStatus
+
+
     End Sub
 
     Private Sub txtSellPrice_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles txtPrice.MaskInputRejected
@@ -59,5 +68,10 @@
         Me.Close()
     End Sub
 
+    Private Sub txtPrice_TextChanged(sender As Object, e As EventArgs) Handles txtPrice.TextChanged
 
+        txtProfit.Text = txtPrice.Text - txtTMV.Text
+
+
+    End Sub
 End Class
