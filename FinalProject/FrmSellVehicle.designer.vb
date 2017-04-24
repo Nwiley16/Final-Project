@@ -325,11 +325,11 @@ Partial Class FrmSellVehicle
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(428, 388)
+        Me.Label14.Location = New System.Drawing.Point(441, 387)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(95, 20)
+        Me.Label14.Size = New System.Drawing.Size(78, 20)
         Me.Label14.TabIndex = 45
-        Me.Label14.Text = "Arrival Date:"
+        Me.Label14.Text = "Sell Date:"
         '
         'dtpSale
         '

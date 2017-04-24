@@ -29,8 +29,13 @@
 
 
     Private Sub dtpSale_ValueChanged(sender As Object, e As EventArgs) Handles dtpSale.ValueChanged
-        If dtpSale.Value = dtpArrival.Value.AddDays(10) Then
-            txtTMV.Text = txtPrice.Text - txtPrice.Text * 0.05
+        Dim SalePrice As Decimal
+        SalePrice = txtPrice.Text
+        Dim SellDate As DateTime = dtpSale.Value
+        Dim ArrivalDate As DateTime = dtpArrival.Value
+
+        If SellDate.Date = ArrivalDate.Date.AddDays(10) Then
+            SalePrice = SalePrice - (SalePrice * 0.05)
         End If
 
 
@@ -53,4 +58,6 @@
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
     End Sub
+
+
 End Class
