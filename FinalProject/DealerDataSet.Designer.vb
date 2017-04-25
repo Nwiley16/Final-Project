@@ -900,9 +900,9 @@ Partial Public Class DealerDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddSoldRow(ByVal Year As String, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal SalePrice As Decimal, ByVal Profit As Decimal) As SoldRow
+        Public Overloads Function AddSoldRow(ByVal SaleID As Integer, ByVal Year As String, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal SalePrice As Decimal, ByVal Profit As Decimal) As SoldRow
             Dim rowSoldRow As SoldRow = CType(Me.NewRow,SoldRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Year, Make, Model, Trim, Color, Drivetrain, Mileage, SalePrice, Profit}
+            Dim columnValuesArray() As Object = New Object() {SaleID, Year, Make, Model, Trim, Color, Drivetrain, Mileage, SalePrice, Profit}
             rowSoldRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSoldRow)
             Return rowSoldRow
@@ -967,7 +967,6 @@ Partial Public Class DealerDataSet
             Me.columnProfit = New Global.System.Data.DataColumn("Profit", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProfit)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnSaleID}, true))
-            Me.columnSaleID.AutoIncrement = true
             Me.columnSaleID.AutoIncrementSeed = 100
             Me.columnSaleID.AllowDBNull = false
             Me.columnSaleID.ReadOnly = true

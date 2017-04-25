@@ -10,7 +10,7 @@
     End Sub
 
     Private Sub BtnUpdate_Click(sender As Object, e As EventArgs) Handles BtnUpdate.Click
-        mVehicle.Update(StockNumber, txtYear.Text, txtMake.Text, txtModel.Text,
+        mVehicle.Update(txtStockNum.Text, txtYear.Text, txtMake.Text, txtModel.Text,
                         txtTrim.Text, txtColor.Text, cboDrivetrain.Text,
                         txtMileage.Text, txtPrice.Text)
     End Sub

@@ -22,6 +22,7 @@ Partial Class FrmAddVehicle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.txtStockNum = New System.Windows.Forms.TextBox()
         Me.txtYear = New System.Windows.Forms.TextBox()
         Me.txtMake = New System.Windows.Forms.TextBox()
@@ -49,12 +50,15 @@ Partial Class FrmAddVehicle
         Me.dtpArrival = New System.Windows.Forms.DateTimePicker()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.StatusStrip1.SuspendLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtStockNum
         '
         Me.txtStockNum.Location = New System.Drawing.Point(183, 32)
+        Me.txtStockNum.MaxLength = 2
         Me.txtStockNum.Name = "txtStockNum"
         Me.txtStockNum.Size = New System.Drawing.Size(100, 20)
         Me.txtStockNum.TabIndex = 0
@@ -288,6 +292,10 @@ Partial Class FrmAddVehicle
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 17)
         '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
         'FrmAddVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -323,6 +331,7 @@ Partial Class FrmAddVehicle
         Me.Text = "Add Vehicle"
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -355,4 +364,5 @@ Partial Class FrmAddVehicle
     Friend WithEvents dtpArrival As DateTimePicker
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents lblStatus As ToolStripStatusLabel
+    Friend WithEvents errProvider As ErrorProvider
 End Class

@@ -47,24 +47,20 @@
     End Sub
 
     Private Sub btnSell_Click(sender As Object, e As EventArgs) Handles btnSell.Click
-
-
         lblStatus.Text = ""
 
-        If mSoldVehicle.Sell(CInt(txtSaleID.Text), CInt(txtYear.Text),
+        If mSoldVehicle.Insert(CInt(txtSaleID.Text), CInt(txtYear.Text),
                            txtMake.Text, txtModel.Text, txtTrim.Text, txtColor.Text,
                            cboDrivetrain.Text, CInt(txtMileage.Text),
-                              CDec(txtPrice.Text), CDec(txtProfit.Text), dtpSale.Value) Then
+                              CDec(txtPrice.Text), CDec(txtProfit.Text)) Then
 
 
-
+            mVehicle.Delete(txtStockNum.Text)
         End If
         lblStatus.Text = mVehicle.LastStatus
     End Sub
 
-    Private Sub txtSellPrice_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles txtPrice.MaskInputRejected
 
-    End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()

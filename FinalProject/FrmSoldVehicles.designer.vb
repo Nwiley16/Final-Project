@@ -24,10 +24,6 @@ Partial Class FrmSoldVehicles
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.dgvInventory = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.DealerDataSet = New FinalProject.DealerDataSet()
-        Me.SoldBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SoldTableAdapter = New FinalProject.DealerDataSetTableAdapters.SoldTableAdapter()
         Me.SaleIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.YearDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MakeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,21 +34,109 @@ Partial Class FrmSoldVehicles
         Me.MileageDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SalePriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProfitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SoldBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DealerDataSet = New FinalProject.DealerDataSet()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.SoldTableAdapter = New FinalProject.DealerDataSetTableAdapters.SoldTableAdapter()
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DealerDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SoldBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DealerDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvInventory
         '
+        Me.dgvInventory.AllowUserToAddRows = False
+        Me.dgvInventory.AllowUserToDeleteRows = False
+        Me.dgvInventory.AllowUserToOrderColumns = True
         Me.dgvInventory.AutoGenerateColumns = False
         Me.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvInventory.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SaleIDDataGridViewTextBoxColumn, Me.YearDataGridViewTextBoxColumn, Me.MakeDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.TrimDataGridViewTextBoxColumn, Me.ColorDataGridViewTextBoxColumn, Me.DrivetrainDataGridViewTextBoxColumn, Me.MileageDataGridViewTextBoxColumn, Me.SalePriceDataGridViewTextBoxColumn, Me.ProfitDataGridViewTextBoxColumn})
         Me.dgvInventory.DataSource = Me.SoldBindingSource
         Me.dgvInventory.Location = New System.Drawing.Point(8, 120)
         Me.dgvInventory.Name = "dgvInventory"
+        Me.dgvInventory.ReadOnly = True
         Me.dgvInventory.Size = New System.Drawing.Size(1041, 222)
         Me.dgvInventory.TabIndex = 47
+        '
+        'SaleIDDataGridViewTextBoxColumn
+        '
+        Me.SaleIDDataGridViewTextBoxColumn.DataPropertyName = "SaleID"
+        Me.SaleIDDataGridViewTextBoxColumn.HeaderText = "SaleID"
+        Me.SaleIDDataGridViewTextBoxColumn.Name = "SaleIDDataGridViewTextBoxColumn"
+        Me.SaleIDDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'YearDataGridViewTextBoxColumn
+        '
+        Me.YearDataGridViewTextBoxColumn.DataPropertyName = "Year"
+        Me.YearDataGridViewTextBoxColumn.HeaderText = "Year"
+        Me.YearDataGridViewTextBoxColumn.Name = "YearDataGridViewTextBoxColumn"
+        Me.YearDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MakeDataGridViewTextBoxColumn
+        '
+        Me.MakeDataGridViewTextBoxColumn.DataPropertyName = "Make"
+        Me.MakeDataGridViewTextBoxColumn.HeaderText = "Make"
+        Me.MakeDataGridViewTextBoxColumn.Name = "MakeDataGridViewTextBoxColumn"
+        Me.MakeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ModelDataGridViewTextBoxColumn
+        '
+        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
+        Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
+        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
+        Me.ModelDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TrimDataGridViewTextBoxColumn
+        '
+        Me.TrimDataGridViewTextBoxColumn.DataPropertyName = "Trim"
+        Me.TrimDataGridViewTextBoxColumn.HeaderText = "Trim"
+        Me.TrimDataGridViewTextBoxColumn.Name = "TrimDataGridViewTextBoxColumn"
+        Me.TrimDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ColorDataGridViewTextBoxColumn
+        '
+        Me.ColorDataGridViewTextBoxColumn.DataPropertyName = "Color"
+        Me.ColorDataGridViewTextBoxColumn.HeaderText = "Color"
+        Me.ColorDataGridViewTextBoxColumn.Name = "ColorDataGridViewTextBoxColumn"
+        Me.ColorDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DrivetrainDataGridViewTextBoxColumn
+        '
+        Me.DrivetrainDataGridViewTextBoxColumn.DataPropertyName = "Drivetrain"
+        Me.DrivetrainDataGridViewTextBoxColumn.HeaderText = "Drivetrain"
+        Me.DrivetrainDataGridViewTextBoxColumn.Name = "DrivetrainDataGridViewTextBoxColumn"
+        Me.DrivetrainDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MileageDataGridViewTextBoxColumn
+        '
+        Me.MileageDataGridViewTextBoxColumn.DataPropertyName = "Mileage"
+        Me.MileageDataGridViewTextBoxColumn.HeaderText = "Mileage"
+        Me.MileageDataGridViewTextBoxColumn.Name = "MileageDataGridViewTextBoxColumn"
+        Me.MileageDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SalePriceDataGridViewTextBoxColumn
+        '
+        Me.SalePriceDataGridViewTextBoxColumn.DataPropertyName = "SalePrice"
+        Me.SalePriceDataGridViewTextBoxColumn.HeaderText = "SalePrice"
+        Me.SalePriceDataGridViewTextBoxColumn.Name = "SalePriceDataGridViewTextBoxColumn"
+        Me.SalePriceDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ProfitDataGridViewTextBoxColumn
+        '
+        Me.ProfitDataGridViewTextBoxColumn.DataPropertyName = "Profit"
+        Me.ProfitDataGridViewTextBoxColumn.HeaderText = "Profit"
+        Me.ProfitDataGridViewTextBoxColumn.Name = "ProfitDataGridViewTextBoxColumn"
+        Me.ProfitDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SoldBindingSource
+        '
+        Me.SoldBindingSource.DataMember = "Sold"
+        Me.SoldBindingSource.DataSource = Me.DealerDataSet
+        '
+        'DealerDataSet
+        '
+        Me.DealerDataSet.DataSetName = "DealerDataSet"
+        Me.DealerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label3
         '
@@ -67,80 +151,9 @@ Partial Class FrmSoldVehicles
         Me.Label3.Text = "Dream Vehicles"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'DealerDataSet
-        '
-        Me.DealerDataSet.DataSetName = "DealerDataSet"
-        Me.DealerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SoldBindingSource
-        '
-        Me.SoldBindingSource.DataMember = "Sold"
-        Me.SoldBindingSource.DataSource = Me.DealerDataSet
-        '
         'SoldTableAdapter
         '
         Me.SoldTableAdapter.ClearBeforeFill = True
-        '
-        'SaleIDDataGridViewTextBoxColumn
-        '
-        Me.SaleIDDataGridViewTextBoxColumn.DataPropertyName = "SaleID"
-        Me.SaleIDDataGridViewTextBoxColumn.HeaderText = "SaleID"
-        Me.SaleIDDataGridViewTextBoxColumn.Name = "SaleIDDataGridViewTextBoxColumn"
-        Me.SaleIDDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'YearDataGridViewTextBoxColumn
-        '
-        Me.YearDataGridViewTextBoxColumn.DataPropertyName = "Year"
-        Me.YearDataGridViewTextBoxColumn.HeaderText = "Year"
-        Me.YearDataGridViewTextBoxColumn.Name = "YearDataGridViewTextBoxColumn"
-        '
-        'MakeDataGridViewTextBoxColumn
-        '
-        Me.MakeDataGridViewTextBoxColumn.DataPropertyName = "Make"
-        Me.MakeDataGridViewTextBoxColumn.HeaderText = "Make"
-        Me.MakeDataGridViewTextBoxColumn.Name = "MakeDataGridViewTextBoxColumn"
-        '
-        'ModelDataGridViewTextBoxColumn
-        '
-        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
-        Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
-        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
-        '
-        'TrimDataGridViewTextBoxColumn
-        '
-        Me.TrimDataGridViewTextBoxColumn.DataPropertyName = "Trim"
-        Me.TrimDataGridViewTextBoxColumn.HeaderText = "Trim"
-        Me.TrimDataGridViewTextBoxColumn.Name = "TrimDataGridViewTextBoxColumn"
-        '
-        'ColorDataGridViewTextBoxColumn
-        '
-        Me.ColorDataGridViewTextBoxColumn.DataPropertyName = "Color"
-        Me.ColorDataGridViewTextBoxColumn.HeaderText = "Color"
-        Me.ColorDataGridViewTextBoxColumn.Name = "ColorDataGridViewTextBoxColumn"
-        '
-        'DrivetrainDataGridViewTextBoxColumn
-        '
-        Me.DrivetrainDataGridViewTextBoxColumn.DataPropertyName = "Drivetrain"
-        Me.DrivetrainDataGridViewTextBoxColumn.HeaderText = "Drivetrain"
-        Me.DrivetrainDataGridViewTextBoxColumn.Name = "DrivetrainDataGridViewTextBoxColumn"
-        '
-        'MileageDataGridViewTextBoxColumn
-        '
-        Me.MileageDataGridViewTextBoxColumn.DataPropertyName = "Mileage"
-        Me.MileageDataGridViewTextBoxColumn.HeaderText = "Mileage"
-        Me.MileageDataGridViewTextBoxColumn.Name = "MileageDataGridViewTextBoxColumn"
-        '
-        'SalePriceDataGridViewTextBoxColumn
-        '
-        Me.SalePriceDataGridViewTextBoxColumn.DataPropertyName = "SalePrice"
-        Me.SalePriceDataGridViewTextBoxColumn.HeaderText = "SalePrice"
-        Me.SalePriceDataGridViewTextBoxColumn.Name = "SalePriceDataGridViewTextBoxColumn"
-        '
-        'ProfitDataGridViewTextBoxColumn
-        '
-        Me.ProfitDataGridViewTextBoxColumn.DataPropertyName = "Profit"
-        Me.ProfitDataGridViewTextBoxColumn.HeaderText = "Profit"
-        Me.ProfitDataGridViewTextBoxColumn.Name = "ProfitDataGridViewTextBoxColumn"
         '
         'FrmSoldVehicles
         '
@@ -152,8 +165,8 @@ Partial Class FrmSoldVehicles
         Me.Name = "FrmSoldVehicles"
         Me.Text = "FrmSoldVehicles"
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DealerDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SoldBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DealerDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
