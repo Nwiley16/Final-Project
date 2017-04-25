@@ -35,10 +35,11 @@
         SalePrice = txtPrice.Text
         Dim SellDate As DateTime = dtpSale.Value
         Dim ArrivalDate As DateTime = dtpArrival.Value
+        SalePrice = SalePrice - (SalePrice * 0.05)
 
-        If SellDate.Date = ArrivalDate.Date.AddDays(10) Then
-            SalePrice = SalePrice - (SalePrice * 0.05)
-        End If
+        'If SellDate.Date = ArrivalDate.Date.AddDays(10) Then
+        '    SalePrice = SalePrice - (SalePrice * 0.05)
+        'End If
 
 
 
@@ -46,18 +47,19 @@
     End Sub
 
     Private Sub btnSell_Click(sender As Object, e As EventArgs) Handles btnSell.Click
+
+
         lblStatus.Text = ""
 
+        If mSoldVehicle.Sell(CInt(txtSaleID.Text), CInt(txtYear.Text),
+                           txtMake.Text, txtModel.Text, txtTrim.Text, txtColor.Text,
+                           cboDrivetrain.Text, CInt(txtMileage.Text),
+                              CDec(txtPrice.Text), CDec(txtProfit.Text), dtpSale.Value) Then
 
-        If mSoldVehicle.Sell(CInt(txtSaleID.Text), CInt(txtYear.Text), txtMake.Text, txtModel.Text,
-                            txtModel.Text, txtTrim.Text, cboDrivetrain.Text, CInt(txtMileage.Text),
-                            CDec(txtPrice.Text), CDec(txtProfit.Text), dtpSale.Value) Then
-            mVehicle.Delete(txtStockNum.Text)
+
+
         End If
-
         lblStatus.Text = mVehicle.LastStatus
-
-
     End Sub
 
     Private Sub txtSellPrice_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles txtPrice.MaskInputRejected

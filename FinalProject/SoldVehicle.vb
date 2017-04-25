@@ -2,6 +2,7 @@
 
     Public Property LastStatus As String
     Private adapter As New DealerDataSetTableAdapters.SoldTableAdapter
+    Private adapter1 As New DealerDataSetTableAdapters.Inventory1TableAdapter
 
 
     Public Function GetSumOfProfit()
@@ -19,7 +20,7 @@
         End Get
     End Property
 
-    Private adapter1 As New DealerDataSetTableAdapters.SoldTableAdapter
+
 
     Public Function Sell(pSaleID As Integer, pYear As Integer,
                       pMake As String, pModel As String, pTrim As String,
@@ -28,7 +29,7 @@
         Dim Result As Boolean = False
         Try
 
-            If adapter1.Insert(pSaleID, pYear, pMake, pModel, pTrim, pColor, pDriveTrain,
+            If adapter.Insert(pSaleID, pYear, pMake, pModel, pTrim, pColor, pDriveTrain,
                               pMiles, pSalePrice, pProfit) > 0 Then
                 LastStatus = "Vehicle sold successfully!"
                 Result = True

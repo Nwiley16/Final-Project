@@ -43,6 +43,7 @@ Partial Class FrmInventory
         Me.txtStockNum = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnSell = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
         CType(Me.dgvInventory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Inventory1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DealerDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -195,11 +196,22 @@ Partial Class FrmInventory
         Me.btnSell.Text = "Sell Vehicle"
         Me.btnSell.UseVisualStyleBackColor = True
         '
+        'btnUpdate
+        '
+        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.Location = New System.Drawing.Point(703, 154)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(100, 28)
+        Me.btnUpdate.TabIndex = 64
+        Me.btnUpdate.Text = "Update Vehicle"
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
         'FrmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1247, 493)
+        Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnSell)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtStockNum)
@@ -237,4 +249,5 @@ Partial Class FrmInventory
     Friend WithEvents txtStockNum As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents btnSell As Button
+    Friend WithEvents btnUpdate As Button
 End Class

@@ -1681,14 +1681,12 @@ Namespace DealerDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ArrivalDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ArrivalDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE       Inventory1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                StockNumber = @StockNumber, Year = @Y"& _ 
-                "ear, Make = @Make, Model = @Model, Trim = @Trim, Color = @Color, Drivetrain = @D"& _ 
-                "rivetrain, Mileage = @Mileage, Price = @Price, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (StockNumber = @St"& _ 
-                "ockNumber);      "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT StockNumber, Year, Make, Model, Trim, Color, Drivetrai"& _ 
-                "n, Mileage, TrueMarketValue, Price, ArrivalDate FROM Inventory1 WHERE (StockNumb"& _ 
-                "er = @StockNumber)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE       Inventory1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Year = @Year, Make = @Make, Model = @"& _ 
+                "Model, Trim = @Trim, Color = @Color, Drivetrain = @Drivetrain, Mileage = @Mileag"& _ 
+                "e, Price = @Price"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (StockNumber = @StockNumber);        "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT St"& _ 
+                "ockNumber, Year, Make, Model, Trim, Color, Drivetrain, Mileage, TrueMarketValue,"& _ 
+                " Price, ArrivalDate FROM Inventory1 WHERE (StockNumber = @StockNumber)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StockNumber", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.NVarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Make", Global.System.Data.SqlDbType.NVarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Make", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Model", Global.System.Data.SqlDbType.NVarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Model", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1697,6 +1695,7 @@ Namespace DealerDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Drivetrain", Global.System.Data.SqlDbType.NVarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Drivetrain", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Mileage", Global.System.Data.SqlDbType.NVarChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Mileage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Price", Global.System.Data.SqlDbType.Money, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Price", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StockNumber", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "StockNumber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1857,44 +1856,44 @@ Namespace DealerDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal StockNumber As Integer, ByVal Year As String, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal Price As Decimal) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(StockNumber,Integer)
+        Public Overloads Overridable Function Update(ByVal Year As String, ByVal Make As String, ByVal Model As String, ByVal Trim As String, ByVal Color As String, ByVal Drivetrain As String, ByVal Mileage As String, ByVal Price As Decimal, ByVal StockNumber As Integer) As Integer
             If (Year Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Year")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Year,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Year,String)
             End If
             If (Make Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Make")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Make,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Make,String)
             End If
             If (Model Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Model")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Model,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Model,String)
             End If
             If (Trim Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Trim,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Trim,String)
             End If
             If (Color Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Color")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Color,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Color,String)
             End If
             If (Drivetrain Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Drivetrain")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Drivetrain,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Drivetrain,String)
             End If
             If (Mileage Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Mileage")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Mileage,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Mileage,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Price,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Price,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(StockNumber,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

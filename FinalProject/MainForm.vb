@@ -20,7 +20,7 @@
 
     End Sub
 
-    Private Sub EditVehicleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditVehicleToolStripMenuItem.Click
+    Private Sub EditVehicleToolStripMenuItem_Click(sender As Object, e As EventArgs) 
         FrmUpdateVehicle.ShowDialog()
 
     End Sub

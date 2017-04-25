@@ -29,7 +29,6 @@ Partial Class MainForm
         Me.InventoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewInventoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SoldVehiclesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DealerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -75,7 +74,7 @@ Partial Class MainForm
         '
         'InventoryToolStripMenuItem
         '
-        Me.InventoryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddVehicleToolStripMenuItem, Me.RemoveVehicleToolStripMenuItem, Me.EditVehicleToolStripMenuItem, Me.ViewInventoryToolStripMenuItem, Me.SoldVehiclesToolStripMenuItem})
+        Me.InventoryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddVehicleToolStripMenuItem, Me.RemoveVehicleToolStripMenuItem, Me.ViewInventoryToolStripMenuItem, Me.SoldVehiclesToolStripMenuItem})
         Me.InventoryToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.InventoryToolStripMenuItem.Name = "InventoryToolStripMenuItem"
         Me.InventoryToolStripMenuItem.Size = New System.Drawing.Size(88, 25)
@@ -92,12 +91,6 @@ Partial Class MainForm
         Me.RemoveVehicleToolStripMenuItem.Name = "RemoveVehicleToolStripMenuItem"
         Me.RemoveVehicleToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
         Me.RemoveVehicleToolStripMenuItem.Text = "Remove Vehicle"
-        '
-        'EditVehicleToolStripMenuItem
-        '
-        Me.EditVehicleToolStripMenuItem.Name = "EditVehicleToolStripMenuItem"
-        Me.EditVehicleToolStripMenuItem.Size = New System.Drawing.Size(197, 26)
-        Me.EditVehicleToolStripMenuItem.Text = "Edit Vehicle "
         '
         'ViewInventoryToolStripMenuItem
         '
@@ -149,7 +142,6 @@ Partial Class MainForm
     Friend WithEvents InventoryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddVehicleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RemoveVehicleToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EditVehicleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DealerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventoryStatusToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ViewInventoryToolStripMenuItem As ToolStripMenuItem

@@ -20,4 +20,12 @@
         frmSellVehicle.ShowDialog()
 
     End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Dim StockNumber As Integer = CInt(txtStockNum.Text)
+
+        Dim frmUpdateVehicle As New FrmUpdateVehicle
+        frmUpdateVehicle.StockNumber = StockNumber
+        frmUpdateVehicle.ShowDialog()
+    End Sub
 End Class
