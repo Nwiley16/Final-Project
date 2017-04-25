@@ -1,7 +1,7 @@
 ﻿Public Class FrmInventory
     Private Sub FrmInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DealerDataSet1.Inventory1' table. You can move, or remove it, as needed.
-        Me.Inventory1TableAdapter.Fill(Me.DealerDataSet.Inventory1)
+        'Me.Inventory1TableAdapter.Fill(Me.DealerDataSet.Inventory1)
 
 
         Dim mInventory As New Vehicle
@@ -27,5 +27,20 @@
         Dim frmUpdateVehicle As New FrmUpdateVehicle
         frmUpdateVehicle.StockNumber = StockNumber
         frmUpdateVehicle.ShowDialog()
+    End Sub
+
+    Private Sub txtStockNum_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtStockNum.KeyPress
+        errProvider.Clear()
+
+
+        If e.KeyChar = vbBack Then
+            Exit Sub
+        End If
+
+        If Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+
+            errProvider.SetError(txtStockNum, "Enter digits only")
+        End If
     End Sub
 End Class

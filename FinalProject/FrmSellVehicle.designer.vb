@@ -22,6 +22,7 @@ Partial Class FrmSellVehicle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -55,7 +56,9 @@ Partial Class FrmSellVehicle
         Me.dtpSale = New System.Windows.Forms.DateTimePicker()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtProfit = New System.Windows.Forms.MaskedTextBox()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.StatusStrip1.SuspendLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -228,6 +231,7 @@ Partial Class FrmSellVehicle
         '
         'txtTMV
         '
+        Me.txtTMV.Enabled = False
         Me.txtTMV.Location = New System.Drawing.Point(176, 147)
         Me.txtTMV.Name = "txtTMV"
         Me.txtTMV.Size = New System.Drawing.Size(100, 20)
@@ -235,6 +239,7 @@ Partial Class FrmSellVehicle
         '
         'txtStockNum
         '
+        Me.txtStockNum.Enabled = False
         Me.txtStockNum.Location = New System.Drawing.Point(176, 23)
         Me.txtStockNum.Name = "txtStockNum"
         Me.txtStockNum.Size = New System.Drawing.Size(100, 20)
@@ -357,6 +362,10 @@ Partial Class FrmSellVehicle
         Me.txtProfit.Size = New System.Drawing.Size(100, 20)
         Me.txtProfit.TabIndex = 48
         '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
+        '
         'FrmSellVehicle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -398,6 +407,7 @@ Partial Class FrmSellVehicle
         Me.Text = "Sell Vehicle"
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -436,4 +446,5 @@ Partial Class FrmSellVehicle
     Friend WithEvents dtpSale As DateTimePicker
     Friend WithEvents Label15 As Label
     Friend WithEvents txtProfit As MaskedTextBox
+    Friend WithEvents errProvider As ErrorProvider
 End Class

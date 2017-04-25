@@ -2100,9 +2100,9 @@ Namespace DealerDataSetTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO Sold"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (SaleID, Year, Make, Model, Trim, Colo"& _ 
                 "r, Drivetrain, Mileage, SalePrice, Profit)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@SaleID,@Year,@Make,@"& _ 
-                "Model,@Trim,@Color,@Drivetrain,@Mileage,@SalePrice,@Profit);     "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT SaleID"& _ 
-                ", Year, Make, Model, Trim, Color, Drivetrain, Mileage, SalePrice, Profit, StockN"& _ 
-                "umber FROM Sold WHERE (SaleID = SCOPE_IDENTITY())"
+                "Model,@Trim,@Color,@Drivetrain,@Mileage,@SalePrice,@Profit);      "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT SaleI"& _ 
+                "D, Year, Make, Model, Trim, Color, Drivetrain, Mileage, SalePrice, Profit FROM S"& _ 
+                "old WHERE (SaleID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SaleID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SaleID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Year", Global.System.Data.SqlDbType.NVarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Year", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

@@ -55,9 +55,9 @@
                               CDec(txtPrice.Text), CDec(txtProfit.Text)) Then
 
 
-            mVehicle.Delete(txtStockNum.Text)
+            mVehicle.Delete(CInt(txtStockNum.Text))
         End If
-        lblStatus.Text = mVehicle.LastStatus
+        lblStatus.Text = mSoldVehicle.LastStatus
     End Sub
 
 
@@ -71,5 +71,35 @@
         txtProfit.Text = txtPrice.Text - txtTMV.Text
 
 
+    End Sub
+
+    Private Sub txtPrice_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrice.KeyPress
+        errProvider.Clear()
+
+
+        If e.KeyChar = vbBack Then
+            Exit Sub
+        End If
+
+        If Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+
+            errProvider.SetError(txtPrice, "Enter digits only")
+        End If
+    End Sub
+
+    Private Sub txtTMV_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTMV.KeyPress
+        errProvider.Clear()
+
+
+        If e.KeyChar = vbBack Then
+            Exit Sub
+        End If
+
+        If Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+
+            errProvider.SetError(txtTMV, "Enter digits only")
+        End If
     End Sub
 End Class
